@@ -53,3 +53,7 @@ E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\bin
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\EmployeeTaskAssignmentSystem.csproj.CopyComplete
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EmployeePageView.g.cs
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\HomePageView.g.cs
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EmployeePageView.baml
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\HomePageView.baml
