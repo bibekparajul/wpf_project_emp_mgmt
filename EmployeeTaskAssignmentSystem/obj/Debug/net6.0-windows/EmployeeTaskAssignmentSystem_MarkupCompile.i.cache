@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\App.xaml
-4-1137636724
+5-1451396391
 
-14-573072168
+16-1809601794
 214-1260958379
-MainWindow.xaml;View\EmployeePageView.xaml;View\HomePageView.xaml;View\LoginView.xaml;
+MainWindow.xaml;View\EmployeePageView.xaml;View\HomePageView.xaml;View\LoginView.xaml;View\ModalEmployee.xaml;
 
 True
 
