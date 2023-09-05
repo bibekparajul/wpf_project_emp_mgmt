@@ -1,0 +1,122 @@
+﻿<Window
+    x:Class="EmployeeTaskAssignmentSystem.View.LoginView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:EmployeeTaskAssignmentSystem.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="LoginView"
+    Width="800"
+    Height="450"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+        <!--  PasswordBox style  -->
+        <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox">
+            <Setter Property="Height" Value="28" />
+            <Setter Property="Margin" Value="0,5,0,0" />
+            <Setter Property="Padding" Value="10,0,0,0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="BorderThickness" Value="0,0,0,0" />
+            <Setter Property="FontFamily" Value="Roboto" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Foreground" Value="black" />
+        </Style>
+        <!--  TextBox style  -->
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Height" Value="28" />
+            <Setter Property="Margin" Value="0,5,0,0" />
+            <Setter Property="Padding" Value="10,0,0,0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="BorderThickness" Value="0,0,0,0" />
+            <Setter Property="FontFamily" Value="Roboto" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Foreground" Value="black" />
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Border
+            BorderBrush="LightGray"
+            BorderThickness="1"
+            CornerRadius="5">
+            <StackPanel Grid.Column="0" Margin="10">
+                <Label
+                    Margin="0,40"
+                    Content="ETAS"
+                    FontFamily="roboto"
+                    FontSize="28"
+                    FontWeight="Bold"
+                    Foreground="#BE263B" />
+                <TextBlock
+                    Margin="10,5"
+                    FontSize="20"
+                    Text="Email" />
+                <Border
+                    Margin="10,0,10,0"
+                    BorderBrush="gray"
+                    BorderThickness="1.5"
+                    CornerRadius="3">
+                    <TextBox Style="{StaticResource TextBoxStyle}" />
+                </Border>
+                <TextBlock
+                    Margin="10,5"
+                    FontSize="20"
+                    Text="Password" />
+                <Border
+                    Margin="10,0,10,0"
+                    BorderBrush="gray"
+                    BorderThickness="1.5"
+                    CornerRadius="3">
+                    <PasswordBox Style="{StaticResource PasswordBoxStyle}" />
+                </Border>
+                <Button
+                    Margin="10,30,10,0"
+                    BorderThickness="0"
+                    Content="Login"
+                    Cursor="Hand"
+                    FontFamily="Roboto"
+                    FontSize="20"
+                    Foreground="White">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#BE263B" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#28AEED" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border
+                                Height="40"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="10">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+        </Border>
+
+        <Image
+            x:Name="imageControl"
+            Grid.Column="1"
+            Margin="50"
+            VerticalAlignment="Center"
+            Source="E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\Images\ll.png" />
+
+    </Grid>
+</Window>
