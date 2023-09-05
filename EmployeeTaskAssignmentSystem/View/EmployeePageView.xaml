@@ -86,11 +86,13 @@
                         Width="200"
                         DisplayMemberBinding="{Binding Contact}"
                         Header="Contact" />
-                    <GridViewColumn>
+                    <GridViewColumn Width="250">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <WrapPanel Orientation="Horizontal">
                                     <Button
+                                        Width="100"
+                                        Margin="0,0,4,0"
                                         Padding="10,5"
                                         Background="Blue"
                                         BorderBrush="Blue"
@@ -98,6 +100,7 @@
                                         Content="Edit"
                                         Foreground="White" />
                                     <Button
+                                        Width="100"
                                         Padding="10,5"
                                         Background="Red"
                                         BorderBrush="Red"

@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:EmployeeTaskAssignmentSystem.View"
+    xmlns:local1="clr-namespace:EmployeeTaskAssignmentSystem.ViewModel"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="ModalEmployee"
     Width="400"
@@ -11,6 +12,9 @@
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+    <!--<Window.DataContext>
+        <local1:EmployeePageViewModel />
+    </Window.DataContext>-->
     <Grid>
         <Grid Background="White">
             <Grid.RowDefinitions>
