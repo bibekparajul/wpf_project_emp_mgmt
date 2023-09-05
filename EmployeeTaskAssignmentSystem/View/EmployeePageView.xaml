@@ -96,6 +96,7 @@
                                         Padding="10,5"
                                         Background="Blue"
                                         BorderBrush="Blue"
+                                        Command="{Binding DataContext.UpdateButton, RelativeSource={RelativeSource AncestorType={x:Type local:EmployeePageView}}}"
                                         CommandParameter="{Binding}"
                                         Content="Edit"
                                         Foreground="White" />
@@ -104,6 +105,7 @@
                                         Padding="10,5"
                                         Background="Red"
                                         BorderBrush="Red"
+                                        Command="{Binding DataContext.DeleteButton, RelativeSource={RelativeSource AncestorType={x:Type local:EmployeePageView}}}"
                                         CommandParameter="{Binding}"
                                         Content="Delete"
                                         Foreground="White" />
