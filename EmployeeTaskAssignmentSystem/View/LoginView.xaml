@@ -4,13 +4,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:EmployeeTaskAssignmentSystem.View"
+    xmlns:local1="clr-namespace:EmployeeTaskAssignmentSystem.ViewModel"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="LoginView"
     Width="800"
     Height="450"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-
+    <Window.DataContext>
+        <local1:LoginWindowViewModel />
+    </Window.DataContext>
     <Window.Resources>
         <!--  PasswordBox style  -->
         <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox">
@@ -66,7 +69,7 @@
                     BorderBrush="gray"
                     BorderThickness="1.5"
                     CornerRadius="3">
-                    <TextBox Style="{StaticResource TextBoxStyle}" />
+                    <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding User.Email}" />
                 </Border>
                 <TextBlock
                     Margin="10,5"
@@ -77,11 +80,14 @@
                     BorderBrush="gray"
                     BorderThickness="1.5"
                     CornerRadius="3">
-                    <PasswordBox Style="{StaticResource PasswordBoxStyle}" />
+                    <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding User.Password}" />
+
+                    <!--<PasswordBox Style="{StaticResource PasswordBoxStyle}" />-->
                 </Border>
                 <Button
                     Margin="10,30,10,0"
                     BorderThickness="0"
+                    Command="{Binding LoginButtonCommand}"
                     Content="Login"
                     Cursor="Hand"
                     FontFamily="Roboto"
