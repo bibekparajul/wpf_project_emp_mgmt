@@ -11,11 +11,102 @@
     mc:Ignorable="d">
 
     <Grid Background="White">
-        <Label
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Content="Employee Page"
-            FontSize="24" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Button
+            Grid.Column="1"
+            Margin="10,20,10,0"
+            BorderThickness="0"
+            Command="{Binding OpenAddEmployeeModelCommand}"
+            Content="Add New Employee"
+            Cursor="Hand"
+            FontFamily="Roboto"
+            FontSize="20"
+            Foreground="White">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#BE263B" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#28AEED" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        Height="40"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="10">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <ListView
+            Name="EmployeeItemList"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Margin="10"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Stretch"
+            ItemsSource="{Binding Employees}"
+            SelectedItem="{Binding SelectedEmployee}">
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+                        Width="40"
+                        DisplayMemberBinding="{Binding Id}"
+                        Header="Id" />
+                    <GridViewColumn
+                        Width="200"
+                        DisplayMemberBinding="{Binding Name}"
+                        Header="Name" />
+                    <GridViewColumn
+                        Width="200"
+                        DisplayMemberBinding="{Binding Email}"
+                        Header="Email" />
+                    <GridViewColumn
+                        Width="200"
+                        DisplayMemberBinding="{Binding Address}"
+                        Header="Address" />
+                    <GridViewColumn
+                        Width="200"
+                        DisplayMemberBinding="{Binding Contact}"
+                        Header="Contact" />
+                    <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <WrapPanel Orientation="Horizontal">
+                                    <Button
+                                        Padding="10,5"
+                                        Background="Blue"
+                                        BorderBrush="Blue"
+                                        CommandParameter="{Binding}"
+                                        Content="Edit"
+                                        Foreground="White" />
+                                    <Button
+                                        Padding="10,5"
+                                        Background="Red"
+                                        BorderBrush="Red"
+                                        CommandParameter="{Binding}"
+                                        Content="Delete"
+                                        Foreground="White" />
+                                </WrapPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Page>
