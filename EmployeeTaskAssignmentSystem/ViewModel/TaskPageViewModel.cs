@@ -1,16 +1,14 @@
 ﻿using EmployeeTaskAssignmentSystem.Command;
 using EmployeeTaskAssignmentSystem.Data;
 using EmployeeTaskAssignmentSystem.Model;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 using EmployeeTaskAssignmentSystem.View;
 using TaskStatus = EmployeeTaskAssignmentSystem.Model.TaskStatus;
+using System;
 
 namespace EmployeeTaskAssignmentSystem.ViewModel
 {
@@ -19,8 +17,15 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         public AppDbContext appDbContext;
         public ObservableCollection<TaskModel> _Tasks;
         public ObservableCollection<EmployeeModel> Employees { get; set; }
-
         public string SelectedEmployee { get; set; }
+        public List<string> TaskStatusOptions
+        {
+            get
+            {
+                return Enum.GetNames(typeof(TaskStatus)).ToList();
+            }
+        }
+
         public ObservableCollection<TaskModel> Tasks
         {
             get => _Tasks;

@@ -10,6 +10,7 @@
     Title="ModalTask"
     Width="400"
     Height="400"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
 
@@ -102,7 +103,7 @@
                     VerticalAlignment="Top"
                     SelectedValue="{Binding SelectedStatus, Mode=TwoWay}" />-->
 
-                <ComboBox
+                <!--<ComboBox
                     Width="200"
                     Height="26"
                     HorizontalAlignment="Left"
@@ -113,9 +114,20 @@
                     <ComboBoxItem Content="{x:Static model:TaskStatus.InProgress}" />
                     <ComboBoxItem Content="{x:Static model:TaskStatus.Done}" />
                     <ComboBoxItem Content="{x:Static model:TaskStatus.NotStarted}" />
+                </ComboBox>-->
+
+                <ComboBox
+                    Name="StatusComboBox"
+                    Width="200"
+                    Height="26"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    SelectedItem="{Binding SelectedStatus}"
+                    SelectionChanged="Hello">
+                    <ComboBox.ItemsSource>
+                        <Binding Path="TaskStatusOptions" />
+                    </ComboBox.ItemsSource>
                 </ComboBox>
-
-
 
             </StackPanel>
 
