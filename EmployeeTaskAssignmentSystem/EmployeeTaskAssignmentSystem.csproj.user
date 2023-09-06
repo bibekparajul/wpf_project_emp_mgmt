@@ -19,6 +19,9 @@
     <Compile Update="View\ModalEmployee.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\ModalTask.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\TaskPageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ModalEmployee.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ModalTask.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\TaskPageView.xaml">
