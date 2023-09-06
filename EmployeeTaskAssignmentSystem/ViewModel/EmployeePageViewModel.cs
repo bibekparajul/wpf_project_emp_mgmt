@@ -43,6 +43,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         }
         private void OpenEmployeeModal()
         {
+            SelectedEmployee = null;
             ModalEmployee modalView = new ModalEmployee();
             modalView.DataContext = this;
             modalView.ShowDialog();

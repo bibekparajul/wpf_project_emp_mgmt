@@ -14,7 +14,7 @@
         <vm:EmployeePageViewModel />
     </Page.DataContext>
 
-    <Grid Background="White">
+    <Grid Background="White" PreviewMouseDown="Grid_PreviewMouseDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition />
