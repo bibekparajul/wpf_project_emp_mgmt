@@ -24,7 +24,5 @@ namespace EmployeeTaskAssignmentSystem.View
         {
             InitializeComponent();
         }
-
-
     }
 }
