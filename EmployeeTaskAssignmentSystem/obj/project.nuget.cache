@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "q5crjNCumMrIFaP5ezxv9Ewn2dvUtBiSgOal2NK/D9yqHDWOXmljrNRz90cNYzV4PJRx19C/j2m5e8Ro/3HIDQ==",
+  "dgSpecHash": "gYjTMkzrKUeNM4n2zulREAPH1PmTwVAOPNi4O5ES+yQVOFWOljVgHf9TXXYPAaUfUgVdCnhNrRshhsi2yq4Tcw==",
   "success": true,
   "projectFilePath": "E:\\bajraAssignment\\EmployeeTaskAssignmentSystem\\EmployeeTaskAssignmentSystem\\EmployeeTaskAssignmentSystem.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Dell\\.nuget\\packages\\fontawesome.wpf\\4.7.0.9\\fontawesome.wpf.4.7.0.9.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
@@ -45,5 +46,16 @@
     "C:\\Users\\Dell\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'FontAwesome.WPF 4.7.0.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "FontAwesome.WPF",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }
