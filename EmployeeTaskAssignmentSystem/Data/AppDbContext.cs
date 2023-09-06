@@ -12,11 +12,12 @@ namespace EmployeeTaskAssignmentSystem.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = "Server=DESKTOP-JEURKMP\\SQLEXPRESS;Database=ETAS3;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-JEURKMP\\SQLEXPRESS;Database=ETAS4;Trusted_Connection=True;";
             optionsBuilder.UseSqlServer(connectionString);
         }
 
         public DbSet<UserModel> Users { get; set; }
         public DbSet<EmployeeModel> Employees { get; set; } 
+        public DbSet<TaskModel> Tasks { get; set; } 
     }
 }

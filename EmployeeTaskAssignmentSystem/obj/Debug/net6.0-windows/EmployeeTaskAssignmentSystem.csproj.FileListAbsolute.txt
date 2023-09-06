@@ -59,3 +59,5 @@ E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\HomePageView.baml
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\ModalEmployee.g.cs
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\ModalEmployee.baml
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\TaskPageView.g.cs
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\TaskPageView.baml

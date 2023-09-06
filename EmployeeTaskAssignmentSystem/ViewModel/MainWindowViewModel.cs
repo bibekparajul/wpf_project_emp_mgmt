@@ -25,12 +25,13 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         public ICommand HomeButtonCommand { get; }
         public ICommand EmployeeButtonCommand { get; }
 
+        public ICommand TaskButtonCommand { get; }
         public MainViewModel()
         {
             // Initialize commands
             HomeButtonCommand = new RelayCommand(ShowHomePage);
             EmployeeButtonCommand = new RelayCommand(ShowEmployeePage);
-
+            TaskButtonCommand = new RelayCommand(ShowTaskPage);
             ShowHomePage();
         }
 
@@ -42,6 +43,10 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         private void ShowEmployeePage()
         {
             CurrentPage = new EmployeePageView();
+        }     
+        private void ShowTaskPage()
+        {
+            CurrentPage = new TaskPageView();
         }
     }
 }
