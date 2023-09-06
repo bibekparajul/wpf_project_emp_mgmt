@@ -15,21 +15,88 @@
         <vm:HomePageViewModel />
     </Page.DataContext>
 
+
     <Grid Background="White">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock FontSize="16" Text="Total Employee:" />
-            <TextBlock
-                FontSize="24"
-                FontWeight="Bold"
-                Text="{Binding TotalEmployees}" />
-            <TextBlock
-                Margin="0,20,0,0"
-                FontSize="16"
-                Text="Total Task:" />
-            <TextBlock
-                FontSize="24"
-                FontWeight="Bold"
-                Text="{Binding TotalTasks}" />
-        </StackPanel>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <!--<WrapPanel>
+            <StackPanel>
+                <TextBlock FontSize="16" Text="Total Employee:" />
+                <TextBlock
+                    FontSize="24"
+                    FontWeight="Bold"
+                    Text="{Binding TotalEmployees}" />
+
+                <TextBlock
+                    Margin="0,20,0,0"
+                    FontSize="16"
+                    Text="Total Task:" />
+                <TextBlock
+                    FontSize="24"
+                    FontWeight="Bold"
+                    Text="{Binding TotalTasks}" />
+            </StackPanel>
+        </WrapPanel>-->
+        <WrapPanel
+            Grid.Row="0"
+            Margin="10"
+            HorizontalAlignment="Right">
+            <Label
+                Content="Welcome Admin!"
+                FontSize="20"
+                FontWeight="Bold" />
+            <Button
+                Width="120"
+                Margin="10,0,0,0"
+                Content="Logout" />
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="1" VerticalAlignment="Center">
+            <Border
+                Width="200"
+                Margin="10"
+                BorderBrush="Gray"
+                BorderThickness="1"
+                CornerRadius="5">
+                <StackPanel Margin="10" Orientation="Vertical">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="SemiBold"
+                        Text="Total Employees" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontSize="24"
+                        FontWeight="Bold"
+                        Text="{Binding TotalEmployees}" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Grid.Row="1"
+                Width="200"
+                Margin="10"
+                BorderBrush="Gray"
+                BorderThickness="1"
+                CornerRadius="5">
+                <StackPanel Margin="10" Orientation="Vertical">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontFamily="Roboto"
+                        FontSize="20"
+                        FontWeight="SemiBold"
+                        Text="Total Tasks" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontSize="24"
+                        FontWeight="Bold"
+                        Text="{Binding TotalTasks}" />
+                </StackPanel>
+            </Border>
+        </WrapPanel>
     </Grid>
 </Page>

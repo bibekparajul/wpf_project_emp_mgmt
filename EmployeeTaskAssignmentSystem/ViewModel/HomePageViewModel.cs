@@ -1,55 +1,48 @@
-﻿using EmployeeTaskAssignmentSystem.Model;
-using System.Collections.ObjectModel;
+﻿using EmployeeTaskAssignmentSystem.Data;
 using System.Linq;
 
 namespace EmployeeTaskAssignmentSystem.ViewModel
 {
     public class HomePageViewModel : ViewModelBase
     {
-        private ObservableCollection<EmployeeModel> _employees;
-        private ObservableCollection<TaskModel> _tasks;
-
-        public ObservableCollection<EmployeeModel> Employees
-        {
-            get => _employees;
-            set
-            {
-                if (_employees != value)
-                {
-                    _employees = value;
-                    OnPropertyChanged(nameof(Employees));
-                }
-            }
-        }
-
-        public ObservableCollection<TaskModel> Tasks
-        {
-            get => _tasks;
-            set
-            {
-                if (_tasks != value)
-                {
-                    _tasks = value;
-                    OnPropertyChanged(nameof(Tasks));
-                }
-            }
-        }
-
-        public ObservableCollection<CardItem> CardItems { get; set; }
+        private readonly AppDbContext appDbContext;
 
         public HomePageViewModel()
         {
-            // Assuming Employees and Tasks are populated from your data source
-            Employees = new ObservableCollection<EmployeeModel>();
-            Tasks = new ObservableCollection<TaskModel>();
+            appDbContext = new AppDbContext();
 
-            // Initialize CardItems with data based on Employees and Tasks collections
-            CardItems = new ObservableCollection<CardItem>
+            // Calculate the total counts from the database
+            TotalEmployees = appDbContext.Employees.Count();
+            TotalTasks = appDbContext.Tasks.Count();
+        }
+
+        private int _totalEmployees;
+        public int TotalEmployees
+        {
+            get => _totalEmployees;
+            set
             {
-                new CardItem { Icon = "\xE77B", Title = "Total Employee:", Value = Employees.Count.ToString() },
-                new CardItem { Icon = "\xE8D8", Title = "Total Task:", Value = Tasks.Count.ToString() }
-                // Add more CardItem objects as needed
-            };
+                if (_totalEmployees != value)
+                {
+                    _totalEmployees = value;
+                    OnPropertyChanged(nameof(TotalEmployees));
+                }
+            }
+        }
+
+        private int _totalTasks;
+        public int TotalTasks
+        {
+            get => _totalTasks;
+            set
+            {
+                if (_totalTasks != value)
+                {
+                    _totalTasks = value;
+                    OnPropertyChanged(nameof(TotalTasks));
+                }
+            }
         }
     }
 }
+
