@@ -25,22 +25,6 @@ namespace EmployeeTaskAssignmentSystem.View
             InitializeComponent();
         }
 
-        private void Grid_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            // Check if the mouse click occurred outside of the ListView
-            if (!IsMouseInsideListView(EmployeeItemList, e.GetPosition(EmployeeItemList)))
-            {
-                // Clear the selection by setting SelectedItem to null
-                EmployeeItemList.SelectedItem = null;
-            }
-        }
-
-        // Helper method to check if the mouse click occurred inside the ListView
-        private bool IsMouseInsideListView(ListView listView, Point mousePosition)
-        {
-            var listViewBounds = VisualTreeHelper.GetDescendantBounds(listView);
-            return listViewBounds.Contains(mousePosition);
-        }
 
     }
 }

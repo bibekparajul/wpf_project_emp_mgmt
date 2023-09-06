@@ -124,7 +124,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             EmployeeEmails = Employees.Select(employee => employee.Email).ToList();
             DeleteButton = new RelayCommand(DeleteTask);
         }
- 
         private void CreateTask()
         {
             // Create a new task
@@ -146,7 +145,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             Reset();
             Application.Current.Windows.OfType<ModalTask>().FirstOrDefault()?.Close();
         }
-
         private void DeleteTask()
         {
             if (SelectedTask != null)
@@ -167,7 +165,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 MessageBox.Show("Select a task to delete.");
             }
         }
-
         public void Reset()
         {
             Task.Title = string.Empty;

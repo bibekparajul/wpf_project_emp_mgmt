@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:fa="http://schemas.fontawesome.io/icons/"
     xmlns:local="clr-namespace:EmployeeTaskAssignmentSystem.View"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:EmployeeTaskAssignmentSystem.ViewModel"
     Title="HomePageView"
@@ -221,9 +222,14 @@
                 </StackPanel>
             </Border>
         </WrapPanel>
-        <WrapPanel Grid.Row="2" />
-
-
+        <StackPanel Grid.Row="2">
+            <Label
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Chart here"
+                FontFamily="Roboto"
+                FontSize="20" />
+        </StackPanel>
 
     </Grid>
 </Page>
