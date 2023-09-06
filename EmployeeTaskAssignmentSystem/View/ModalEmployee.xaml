@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:EmployeeTaskAssignmentSystem.View"
     xmlns:local1="clr-namespace:EmployeeTaskAssignmentSystem.ViewModel"
+    xmlns:local11="clr-namespace:EmployeeTaskAssignmentSystem.Model"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="ModalEmployee"
     Width="400"
@@ -12,9 +13,13 @@
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <!--<Window.DataContext>
+    <Window.DataContext>
         <local1:EmployeePageViewModel />
+    </Window.DataContext>
+    <!--<Window.DataContext>
+        <local11:EmployeeModel />
     </Window.DataContext>-->
+
     <Grid>
         <Grid Background="White">
             <Grid.RowDefinitions>

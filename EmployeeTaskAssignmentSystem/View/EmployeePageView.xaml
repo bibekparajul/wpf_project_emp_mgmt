@@ -96,7 +96,7 @@
                                         Padding="10,5"
                                         Background="Blue"
                                         BorderBrush="Blue"
-                                        Command="{Binding DataContext.UpdateButton, RelativeSource={RelativeSource AncestorType={x:Type local:EmployeePageView}}}"
+                                        Command="{Binding DataContext.OpenEmployeeModelCommand, RelativeSource={RelativeSource AncestorType={x:Type local:EmployeePageView}}}"
                                         CommandParameter="{Binding}"
                                         Content="Edit"
                                         Foreground="White" />
