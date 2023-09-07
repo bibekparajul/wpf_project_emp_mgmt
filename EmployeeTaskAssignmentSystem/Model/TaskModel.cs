@@ -9,7 +9,7 @@ namespace EmployeeTaskAssignmentSystem.Model
         Done,
         NotStarted
     }
-    public class TaskModel: ViewModelBase
+    public class TaskModel : ViewModelBase
     {
         private int _id;
         private string _title;

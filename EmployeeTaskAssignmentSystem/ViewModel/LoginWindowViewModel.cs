@@ -1,13 +1,9 @@
-﻿using EmployeeTaskAssignmentSystem.Data;
+﻿using EmployeeTaskAssignmentSystem.Command;
+using EmployeeTaskAssignmentSystem.Data;
 using EmployeeTaskAssignmentSystem.Model;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using System.Windows;
-using EmployeeTaskAssignmentSystem.Command;
+using System.Windows.Input;
 
 namespace EmployeeTaskAssignmentSystem.ViewModel
 {
@@ -38,9 +34,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         }
         private void GrantAccess()
         {
-            //MainWindow mainWindow = new MainWindow();
-            //mainWindow.Show();
-
             bool userFound = appDbContext.Users.Any(user => user.Email == User.Email && user.Password == User.Password);
             if (userFound)
             {

@@ -1,9 +1,4 @@
 ﻿using EmployeeTaskAssignmentSystem.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EmployeeTaskAssignmentSystem.Model
 {
@@ -13,7 +8,7 @@ namespace EmployeeTaskAssignmentSystem.Model
         private string _name { get; set; }
         private string _email { get; set; }
         private string _address { get; set; }
-        private int ?_contact { get; set; }
+        private int? _contact { get; set; }
 
         public int Id
         {
@@ -52,8 +47,8 @@ namespace EmployeeTaskAssignmentSystem.Model
                     OnPropertyChanged(nameof(Email));
                 }
             }
-        }      
-        
+        }
+
         public string Address
         {
             get => _address;
@@ -65,9 +60,9 @@ namespace EmployeeTaskAssignmentSystem.Model
                     OnPropertyChanged(nameof(Address));
                 }
             }
-        }       
-        
-        public int ?Contact
+        }
+
+        public int? Contact
         {
             get => _contact;
             set

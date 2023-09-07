@@ -1,17 +1,12 @@
 ﻿using EmployeeTaskAssignmentSystem.Command;
 using EmployeeTaskAssignmentSystem.View;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace EmployeeTaskAssignmentSystem.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        private object currentPage; 
+        private object currentPage;
         public object CurrentPage
         {
             get { return currentPage; }
@@ -43,7 +38,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         private void ShowEmployeePage()
         {
             CurrentPage = new EmployeePageView();
-        }     
+        }
         private void ShowTaskPage()
         {
             CurrentPage = new TaskPageView();

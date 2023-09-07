@@ -1,10 +1,5 @@
 ﻿using EmployeeTaskAssignmentSystem.Model;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EmployeeTaskAssignmentSystem.Data
 {
@@ -17,7 +12,7 @@ namespace EmployeeTaskAssignmentSystem.Data
         }
 
         public DbSet<UserModel> Users { get; set; }
-        public DbSet<EmployeeModel> Employees { get; set; } 
-        public DbSet<TaskModel> Tasks { get; set; } 
+        public DbSet<EmployeeModel> Employees { get; set; }
+        public DbSet<TaskModel> Tasks { get; set; }
     }
 }

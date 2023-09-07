@@ -1,14 +1,14 @@
 ﻿using EmployeeTaskAssignmentSystem.Command;
 using EmployeeTaskAssignmentSystem.Data;
 using EmployeeTaskAssignmentSystem.Model;
+using EmployeeTaskAssignmentSystem.View;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows.Input;
 using System.Windows;
-using EmployeeTaskAssignmentSystem.View;
+using System.Windows.Input;
 using TaskStatus = EmployeeTaskAssignmentSystem.Model.TaskStatus;
-using System;
 
 namespace EmployeeTaskAssignmentSystem.ViewModel
 {
@@ -96,7 +96,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 }
             }
         }
-        
+
         private TaskStatus _selectedStatus;
         public TaskStatus SelectedStatus
         {

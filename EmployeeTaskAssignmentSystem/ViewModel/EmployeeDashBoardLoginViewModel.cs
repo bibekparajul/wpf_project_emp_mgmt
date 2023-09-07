@@ -26,22 +26,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 }
             }
         }
-
-        private Visibility _taskListVisibility;
-        public Visibility TaskListVisibility
-        {
-            get => _taskListVisibility;
-            set
-            {
-                if (_taskListVisibility != value)
-                {
-                    _taskListVisibility = value;
-                    OnPropertyChanged(nameof(TaskListVisibility));
-                }
-            }
-        }
-
-
         public ObservableCollection<EmployeeModel> Employees
         {
             get => _employees;
@@ -69,7 +53,19 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             }
         }
 
-
+        private string _employeeName;
+        public string EmployeeName
+        {
+            get => _employeeName;
+            set
+            {
+                if (_employeeName != value)
+                {
+                    _employeeName = value;
+                    OnPropertyChanged(nameof(EmployeeName));
+                }
+            }
+        }
 
         private int _taskId;
         public int TaskId
@@ -99,6 +95,19 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             }
         }
 
+        private string _welcomeMessage;
+        public string WelcomeMessage
+        {
+            get => _welcomeMessage;
+            set
+            {
+                if (_welcomeMessage != value)
+                {
+                    _welcomeMessage = value;
+                    OnPropertyChanged(nameof(WelcomeMessage));
+                }
+            }
+        }
 
         private ObservableCollection<TaskModel> _filteredTasks;
         public ObservableCollection<TaskModel> FilteredTasks
@@ -113,16 +122,17 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 }
             }
         }
-
-
         public ICommand RetrieveTaskCommand { get; }
+
+        public ICommand LogoutCommand { get; }
         public EmployeeDashBoardLoginViewModel()
         {
             appDbContext = new AppDbContext();
             Tasks = new ObservableCollection<TaskModel>(appDbContext.Tasks);
             Employees = new ObservableCollection<EmployeeModel>(appDbContext.Employees);
             RetrieveTaskCommand = new RelayCommand(RetrieveTask);
-            FilteredTasks = new ObservableCollection<TaskModel>(); 
+            LogoutCommand = new RelayCommand(Logout);
+            FilteredTasks = new ObservableCollection<TaskModel>();
         }
 
         //private void RetrieveTask()
@@ -149,6 +159,39 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         //    }
         //}
 
+        //private void RetrieveTask()
+        //{
+        //    // Check if UserEmail is valid (e.g., not empty)
+        //    if (string.IsNullOrWhiteSpace(UserEmail))
+        //    {
+        //        MessageBox.Show("Please enter a valid email address.", "Invalid Email", MessageBoxButton.OK, MessageBoxImage.Warning);
+        //        return;
+        //    }
+
+        //    // Check if UserEmail exists in Employees
+        //    bool emailExists = Employees.Any(e => e.Email == UserEmail);
+
+        //    if (!emailExists)
+        //    {
+        //        MessageBox.Show("The entered email does not exist.", "Email Not Found", MessageBoxButton.OK, MessageBoxImage.Warning);
+        //        return;
+        //    }
+
+        //    // Filter tasks based on UserEmail
+        //    var filteredTasks = Tasks.Where(t => t.AssignedTo == UserEmail).ToList();
+        //    if (filteredTasks.Count > 0)
+        //    {
+        //        FilteredTasks = new ObservableCollection<TaskModel>(filteredTasks);
+        //        var employeeTaskRetrievalPage = new EmployeeTaskRetrievalPage();
+        //        employeeTaskRetrievalPage.DataContext = this;
+        //        employeeTaskRetrievalPage.ShowDialog();
+        //    }
+        //    else
+        //    {
+        //        FilteredTasks.Clear();
+        //        MessageBox.Show("No task is assigned to you till date.", "No Tasks", MessageBoxButton.OK, MessageBoxImage.Information);
+        //    }
+        //}
         private void RetrieveTask()
         {
             // Check if UserEmail is valid (e.g., not empty)
@@ -159,14 +202,17 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             }
 
             // Check if UserEmail exists in Employees
-            bool emailExists = Employees.Any(e => e.Email == UserEmail);
+            var employee = Employees.FirstOrDefault(e => e.Email == UserEmail);
+            if (employee != null)
+            {
+                EmployeeName = $"Welcome {employee.Name}";
+            }
 
-            if (!emailExists)
+            if (employee == null)
             {
                 MessageBox.Show("The entered email does not exist.", "Email Not Found", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-
             // Filter tasks based on UserEmail
             var filteredTasks = Tasks.Where(t => t.AssignedTo == UserEmail).ToList();
             if (filteredTasks.Count > 0)
@@ -175,6 +221,8 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 var employeeTaskRetrievalPage = new EmployeeTaskRetrievalPage();
                 employeeTaskRetrievalPage.DataContext = this;
                 employeeTaskRetrievalPage.ShowDialog();
+                Application.Current?.MainWindow?.Close();
+
             }
             else
             {
@@ -182,6 +230,16 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 MessageBox.Show("No task is assigned to you till date.", "No Tasks", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+        private void Logout()
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to logout?", "Logout Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                //Application.Current?.MainWindow?.Close();
+                Application.Current.Shutdown();
+            }
+        }
+
     }
 }
 

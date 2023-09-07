@@ -1,0 +1,51 @@
+﻿<UserControl
+    x:Class="EmployeeTaskAssignmentSystem.View.UCLandingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:EmployeeTaskAssignmentSystem.View"
+    xmlns:local1="clr-namespace:EmployeeTaskAssignmentSystem.ViewModel"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <local1:LandingWindowViewModel x:Key="LandingPageViewModel" />
+    </UserControl.Resources>
+    <Grid DataContext="{StaticResource LandingPageViewModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button
+                Width="200"
+                Height="60"
+                Background="#BE263B"
+                Command="{Binding LoginWindowButtonCommand}"
+                Content="I am a admin"
+                FontFamily="Roboto"
+                FontSize="20"
+                Foreground="White" />
+
+
+        </StackPanel>
+        <StackPanel
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Button
+                Grid.Row="1"
+                Width="200"
+                Height="60"
+                Margin="0,10,0,0"
+                Background="#BE263B"
+                Command="{Binding EmployeeWindowViewButtonCommand}"
+                Content="I am an Employee"
+                FontFamily="Roboto"
+                FontSize="20"
+                Foreground="White" />
+        </StackPanel>
+    </Grid>
+</UserControl>
