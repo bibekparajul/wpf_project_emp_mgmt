@@ -116,7 +116,6 @@
                 </Button>
             </StackPanel>
         </Border>
-
         <Image
             x:Name="imageControl"
             Grid.Column="1"

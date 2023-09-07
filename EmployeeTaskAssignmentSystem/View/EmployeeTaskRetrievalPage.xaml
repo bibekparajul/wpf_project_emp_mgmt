@@ -1,0 +1,67 @@
+﻿<Window
+    x:Class="EmployeeTaskAssignmentSystem.View.EmployeeTaskRetrievalPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:EmployeeTaskAssignmentSystem.View"
+    xmlns:local1="clr-namespace:EmployeeTaskAssignmentSystem.ViewModel"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="EmployeeTaskRetrievalPage"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <local1:EmployeeDashBoardLoginViewModel />
+    </Window.DataContext>
+
+    <Grid Background="White">
+        <ListView
+            Name="EmployeeItemList"
+            MaxWidth="1080"
+            Margin="10"
+            VerticalAlignment="Stretch"
+            HorizontalContentAlignment="Stretch"
+            ItemsSource="{Binding FilteredTasks}"
+            SelectedItem="{Binding SelectedTask}"
+            Visibility="{Binding TaskListVisibility}">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Width="1000" Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Width="300"
+                        Margin="5"
+                        Padding="10"
+                        Background="White"
+                        BorderBrush="Gray"
+                        BorderThickness="1"
+                        CornerRadius="5">
+                        <Grid>
+                            <StackPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Text="{Binding Title}" />
+                                <TextBlock Margin="0,5,0,10" Text="{Binding Description}" />
+                                <TextBlock Margin="0,5,0,10" Text="{Binding Status}" />
+                                <TextBlock Margin="0,5,0,10" Text="{Binding AssignedTo}" />
+
+                                <!--<Button
+                                    Padding="10,5"
+                                    Background="Red"
+                                    BorderBrush="Red"
+                                    CommandParameter="{Binding}"
+                                    Content="Delete"
+                                    Foreground="White" />-->
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>

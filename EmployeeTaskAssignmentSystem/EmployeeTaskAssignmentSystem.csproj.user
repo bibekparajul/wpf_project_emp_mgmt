@@ -7,7 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\EmployeeDashBoardLoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\EmployeePageView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EmployeeTaskRetrievalPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\HomePageView.xaml.cs">
@@ -30,10 +36,19 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\EmployeeDashBoardLoginView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\EmployeePageView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\EmployeeTaskRetrievalPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\HomePageView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\LandingWindowView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LoginView.xaml">
