@@ -116,13 +116,13 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
 
 
         public ICommand RetrieveTaskCommand { get; }
-
         public EmployeeDashBoardLoginViewModel()
         {
             appDbContext = new AppDbContext();
-            Tasks = new ObservableCollection<TaskModel>(appDbContext.Tasks); 
-            Employees = new ObservableCollection<EmployeeModel>(appDbContext.Employees); 
+            Tasks = new ObservableCollection<TaskModel>(appDbContext.Tasks);
+            Employees = new ObservableCollection<EmployeeModel>(appDbContext.Employees);
             RetrieveTaskCommand = new RelayCommand(RetrieveTask);
+            FilteredTasks = new ObservableCollection<TaskModel>(); 
         }
 
         //private void RetrieveTask()
@@ -151,26 +151,37 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
 
         private void RetrieveTask()
         {
+            // Check if UserEmail is valid (e.g., not empty)
+            if (string.IsNullOrWhiteSpace(UserEmail))
+            {
+                MessageBox.Show("Please enter a valid email address.", "Invalid Email", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // Check if UserEmail exists in Employees
+            bool emailExists = Employees.Any(e => e.Email == UserEmail);
+
+            if (!emailExists)
+            {
+                MessageBox.Show("The entered email does not exist.", "Email Not Found", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             // Filter tasks based on UserEmail
             var filteredTasks = Tasks.Where(t => t.AssignedTo == UserEmail).ToList();
             if (filteredTasks.Count > 0)
             {
                 FilteredTasks = new ObservableCollection<TaskModel>(filteredTasks);
                 var employeeTaskRetrievalPage = new EmployeeTaskRetrievalPage();
-                employeeTaskRetrievalPage.DataContext = this; 
+                employeeTaskRetrievalPage.DataContext = this;
                 employeeTaskRetrievalPage.ShowDialog();
             }
             else
             {
                 FilteredTasks.Clear();
-
-                // Show a MessageBox when no tasks are assigned
                 MessageBox.Show("No task is assigned to you till date.", "No Tasks", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
-
-
-
     }
 }
 
