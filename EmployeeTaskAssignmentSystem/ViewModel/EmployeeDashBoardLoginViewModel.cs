@@ -3,10 +3,8 @@ using EmployeeTaskAssignmentSystem.Data;
 using EmployeeTaskAssignmentSystem.Model;
 using EmployeeTaskAssignmentSystem.View;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace EmployeeTaskAssignmentSystem.ViewModel
@@ -105,7 +103,9 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             }
         }
         public ICommand ShowTaskPage { get; }
-        public ICommand HomeButtonCommand { get; }
+
+
+
         public ICommand EmployeeViewTaskButtonCommand { get; }
 
         private ICommand _openEditModalCommand;
@@ -415,7 +415,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 }
             }
         }
-
         private void RetrieveTask()
         {
             // Check if UserEmail is valid (e.g., not empty)

@@ -35,6 +35,7 @@
                     Height="26"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    IsEnabled="False"
                     Text="{Binding TaskToEdit.Title}" />
 
             </StackPanel>
@@ -55,7 +56,8 @@
                     Width="200"
                     Height="100"
                     HorizontalAlignment="Left"
-                    VerticalAlignment="Top">
+                    VerticalAlignment="Top"
+                    IsEnabled="False">
                     <FlowDocument>
                         <Paragraph>
                             <Run Text="{Binding TaskToEdit.Description}" />
@@ -81,7 +83,7 @@
                     Height="26"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    SelectedItem="{Binding TaskToEdit.Status}">
+                    SelectedItem="{Binding SelectedStatus}">
                     <ComboBox.ItemsSource>
                         <Binding Path="TaskStatusOptions" />
                     </ComboBox.ItemsSource>

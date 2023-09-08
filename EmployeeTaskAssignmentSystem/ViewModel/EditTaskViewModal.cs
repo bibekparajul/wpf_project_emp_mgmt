@@ -1,11 +1,12 @@
-﻿using EmployeeTaskAssignmentSystem.Model;
+﻿using EmployeeTaskAssignmentSystem.Command;
+using EmployeeTaskAssignmentSystem.Data;
+using EmployeeTaskAssignmentSystem.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace EmployeeTaskAssignmentSystem.ViewModel
 {
@@ -25,6 +26,8 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             }
         }
         public ObservableCollection<TaskModel> _Tasks;
+        public AppDbContext appDbContext;
+
 
         private Model.TaskStatus _selectedStatus;
         public Model.TaskStatus SelectedStatus
@@ -47,7 +50,23 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             }
         }
 
+        public ICommand UpdateButton { get; }
 
+        public EditTaskViewModel()
+        {
+            appDbContext = new AppDbContext();
+            UpdateButton = new RelayCommand(UpdateTaskEmployee);
+        }
+
+        private void UpdateTaskEmployee()
+        {
+            TaskModel taskModel = new TaskModel();
+            TaskToEdit.Status = SelectedStatus;
+            appDbContext.Tasks.Update(TaskToEdit);
+            appDbContext.SaveChanges();
+            taskModel.Status = SelectedStatus; ;
+            MessageBox.Show(taskModel.Status.ToString());
+        }
     }
 
 }
