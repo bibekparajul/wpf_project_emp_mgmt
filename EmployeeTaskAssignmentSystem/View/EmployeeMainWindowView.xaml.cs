@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmployeeTaskAssignmentSystem.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,6 @@ namespace EmployeeTaskAssignmentSystem.View
         {
             InitializeComponent();
             MainFrame.Navigate(new EmployeeHomePage());
-
         }
     }
 }
