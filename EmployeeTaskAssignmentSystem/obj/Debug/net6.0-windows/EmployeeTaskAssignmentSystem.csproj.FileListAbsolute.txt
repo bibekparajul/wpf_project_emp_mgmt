@@ -39,6 +39,8 @@ E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\bin
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\EmployeeTaskAssignmentSystem.csproj.AssemblyReference.cache
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\MainWindow.g.cs
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EmployeeDashBoardLoginView.g.cs
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EmployeeHomePage.g.cs
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EmployeeMainWindowView.g.cs
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EmployeePageView.g.cs
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EmployeeTaskRetrievalPage.g.cs
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\HomePageView.g.cs
@@ -47,6 +49,7 @@ E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\ModalEmployee.g.cs
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\ModalTask.g.cs
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\TaskPageView.g.cs
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\UCLandingPage.g.cs
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\App.g.cs
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\EmployeeTaskAssignmentSystem_MarkupCompile.cache
@@ -54,6 +57,8 @@ E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\App.baml
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\MainWindow.baml
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EmployeeDashBoardLoginView.baml
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EmployeeHomePage.baml
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EmployeeMainWindowView.baml
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EmployeePageView.baml
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EmployeeTaskRetrievalPage.baml
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\HomePageView.baml
@@ -62,6 +67,7 @@ E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\ModalEmployee.baml
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\ModalTask.baml
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\TaskPageView.baml
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\UCLandingPage.baml
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\EmployeeTaskAssignmentSystem.g.resources
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\EmployeeTaskAssignmentSystem.GeneratedMSBuildEditorConfig.editorconfig
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\EmployeeTaskAssignmentSystem.AssemblyInfoInputs.cache
@@ -73,5 +79,3 @@ E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\EmployeeTaskAssignmentSystem.pdb
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\EmployeeTaskAssignmentSystem.genruntimeconfig.cache
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\ref\EmployeeTaskAssignmentSystem.dll
-E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\UCLandingPage.g.cs
-E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\UCLandingPage.baml

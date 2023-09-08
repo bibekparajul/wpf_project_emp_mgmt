@@ -24,13 +24,11 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 }
             }
         }
-
         public LoginWindowViewModel()
         {
             User = new UserModel();
             appDbContext = new AppDbContext();
             LoginButtonCommand = new RelayCommand(GrantAccess);
-
         }
         private void GrantAccess()
         {

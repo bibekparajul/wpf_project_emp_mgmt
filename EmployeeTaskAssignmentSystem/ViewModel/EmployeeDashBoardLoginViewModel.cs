@@ -3,6 +3,7 @@ using EmployeeTaskAssignmentSystem.Data;
 using EmployeeTaskAssignmentSystem.Model;
 using EmployeeTaskAssignmentSystem.View;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
@@ -26,6 +27,16 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 }
             }
         }
+        private object currentPage;
+        public object CurrentPage
+        {
+            get { return currentPage; }
+            set
+            {
+                currentPage = value;
+                OnPropertyChanged(nameof(CurrentPage));
+            }
+        }
         public ObservableCollection<EmployeeModel> Employees
         {
             get => _employees;
@@ -38,6 +49,9 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 }
             }
         }
+        public ICommand ShowTaskPage { get; }
+        public ICommand HomeButtonCommand { get; }
+        public ICommand EmployeeViewTaskButtonCommand { get; }
 
         private int _empId;
         public int EmpId
@@ -123,7 +137,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             }
         }
         public ICommand RetrieveTaskCommand { get; }
-
         public ICommand LogoutCommand { get; }
         public EmployeeDashBoardLoginViewModel()
         {
@@ -132,6 +145,8 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             Employees = new ObservableCollection<EmployeeModel>(appDbContext.Employees);
             RetrieveTaskCommand = new RelayCommand(RetrieveTask);
             LogoutCommand = new RelayCommand(Logout);
+            EmployeeViewTaskButtonCommand = new RelayCommand(ShowEmployeeTaskPage);
+            HomeButtonCommand = new RelayCommand(ShowHomeDashBoard);
             FilteredTasks = new ObservableCollection<TaskModel>();
         }
 
@@ -218,10 +233,12 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             if (filteredTasks.Count > 0)
             {
                 FilteredTasks = new ObservableCollection<TaskModel>(filteredTasks);
-                var employeeTaskRetrievalPage = new EmployeeTaskRetrievalPage();
-                employeeTaskRetrievalPage.DataContext = this;
-                employeeTaskRetrievalPage.ShowDialog();
-                Application.Current?.MainWindow?.Close();
+                //var employeeTaskRetrievalPage = new EmployeeTaskRetrievalPage();
+                //employeeTaskRetrievalPage.DataContext = this;
+                //employeeTaskRetrievalPage.ShowDialog();
+                var employeeHomePage = new EmployeeMainWindowView();
+                employeeHomePage.DataContext = this;
+                employeeHomePage.Show();
 
             }
             else
@@ -229,6 +246,20 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 FilteredTasks.Clear();
                 MessageBox.Show("No task is assigned to you till date.", "No Tasks", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+        }
+        private void ShowEmployeeTaskPage()
+        {
+            var filteredTasks = Tasks.Where(t => t.AssignedTo == UserEmail).ToList();
+            if (filteredTasks.Count > 0)
+            {
+                FilteredTasks = new ObservableCollection<TaskModel>(filteredTasks);
+            }
+
+            EmployeeTaskRetrievalPage employeeTaskRetrievalPage = new EmployeeTaskRetrievalPage();
+            employeeTaskRetrievalPage.DataContext = this;
+
+            // Set the EmployeeTaskRetrievalPage as the content of the MainFrame
+            CurrentPage = employeeTaskRetrievalPage;
         }
         private void Logout()
         {
@@ -238,6 +269,10 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 //Application.Current?.MainWindow?.Close();
                 Application.Current.Shutdown();
             }
+        }
+        private void ShowHomeDashBoard()
+        {
+            CurrentPage = new EmployeeHomePage();
         }
 
     }
