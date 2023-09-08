@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace EmployeeTaskAssignmentSystem.ViewModel
@@ -107,6 +108,19 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         public ICommand HomeButtonCommand { get; }
         public ICommand EmployeeViewTaskButtonCommand { get; }
 
+        private ICommand _openEditModalCommand;
+        public ICommand OpenEditModalCommand
+        {
+            get
+            {
+                if (_openEditModalCommand == null)
+                {
+                    _openEditModalCommand = new RelayCommand(OpenTaskEditModalCommand);
+                }
+                return _openEditModalCommand;
+            }
+        }
+
         private int _empId;
         public int EmpId
         {
@@ -192,6 +206,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         }
         public ICommand RetrieveTaskCommand { get; }
         public ICommand LogoutCommand { get; }
+
         public EmployeeDashBoardLoginViewModel()
         {
             appDbContext = new AppDbContext();
@@ -203,7 +218,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             HomeButtonCommand = new RelayCommand(ShowHomeDashBoard);
             FilteredTasks = new ObservableCollection<TaskModel>();
         }
-
+        #region comment
         //private void RetrieveTask()
         //{
 
@@ -353,6 +368,53 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         //        MessageBox.Show("No task is assigned to you till date.", "No Tasks", MessageBoxButton.OK, MessageBoxImage.Information);
         //    }
         //}
+        #endregion
+        private void OpenTaskEditModalCommand()
+        {
+            if (SelectedTask != null)
+            {
+                EditTaskViewModel = new EditTaskViewModel
+                {
+                    TaskToEdit = SelectedTask
+                };
+                var modal = new EditModalTask
+                {
+                    DataContext = EditTaskViewModel
+                };
+                modal.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a task to edit.", "Task Selection Required", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+        private EditTaskViewModel _editTaskViewModel;
+        public EditTaskViewModel EditTaskViewModel
+        {
+            get => _editTaskViewModel;
+            set
+            {
+                if (_editTaskViewModel != value)
+                {
+                    _editTaskViewModel = value;
+                    OnPropertyChanged(nameof(EditTaskViewModel));
+                }
+            }
+        }
+
+        private TaskModel _selectedTask;
+        public TaskModel SelectedTask
+        {
+            get => _selectedTask;
+            set
+            {
+                if (_selectedTask != value)
+                {
+                    _selectedTask = value;
+                    OnPropertyChanged(nameof(SelectedTask));
+                }
+            }
+        }
 
         private void RetrieveTask()
         {

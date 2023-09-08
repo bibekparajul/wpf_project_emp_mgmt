@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmployeeTaskAssignmentSystem.Model;
+using System;
 using System.Windows.Input;
 
 namespace EmployeeTaskAssignmentSystem.Command
@@ -7,6 +8,12 @@ namespace EmployeeTaskAssignmentSystem.Command
     {
         private readonly Action _execute;
         private readonly Func<bool> _canExecute;
+        private Action<TaskModel> updateTask;
+
+        public RelayCommand(Action<TaskModel> updateTask)
+        {
+            this.updateTask = updateTask;
+        }
 
         public RelayCommand(Action execute, Func<bool> canExecute = null)
         {
