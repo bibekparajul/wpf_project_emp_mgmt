@@ -103,9 +103,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             }
         }
         public ICommand ShowTaskPage { get; }
-
-
-
+        public ICommand HomeButtonCommand { get; }
         public ICommand EmployeeViewTaskButtonCommand { get; }
 
         private ICommand _openEditModalCommand;
