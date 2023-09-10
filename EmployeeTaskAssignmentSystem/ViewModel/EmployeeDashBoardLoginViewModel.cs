@@ -215,6 +215,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             EmployeeViewTaskButtonCommand = new RelayCommand(ShowEmployeeTaskPage);
             HomeButtonCommand = new RelayCommand(ShowHomeDashBoard);
             FilteredTasks = new ObservableCollection<TaskModel>();
+            EmployeeRetrieve();
         }
         #region comment
         //private void RetrieveTask()
@@ -413,6 +414,26 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 }
             }
         }
+
+        public void EmployeeRetrieve()
+        {
+            // Filter tasks based on UserEmail
+            var userTasks = Tasks.Where(t => t.AssignedTo == UserEmail).ToList();
+
+            // Calculate the task counts for the filtered tasks
+            PendingTasks = userTasks.Count(t => t.Status == TaskStatus.Pending);
+            DoneTasks = userTasks.Count(t => t.Status == TaskStatus.Done);
+            NotStartedTasks = userTasks.Count(t => t.Status == TaskStatus.NotStarted);
+            InProgressTasks = userTasks.Count(t => t.Status == TaskStatus.InProgress);
+
+            if (userTasks.Count > 0)
+            {
+                FilteredTasks = new ObservableCollection<TaskModel>(userTasks);
+                var employeeHomePage = new EmployeeHomePage();
+                employeeHomePage.DataContext = this;
+                CurrentPage = employeeHomePage;
+            }
+        }
         private void RetrieveTask()
         {
             // Check if UserEmail is valid (e.g., not empty)
@@ -449,6 +470,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 FilteredTasks = new ObservableCollection<TaskModel>(userTasks);
                 var employeeHomePage = new EmployeeMainWindowView();
                 employeeHomePage.DataContext = this;
+                EmployeeRetrieve();
                 employeeHomePage.Show();
             }
             else
@@ -482,7 +504,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         }
         private void ShowHomeDashBoard()
         {
-            CurrentPage = new EmployeeHomePage();
+            EmployeeRetrieve();
         }
 
     }
