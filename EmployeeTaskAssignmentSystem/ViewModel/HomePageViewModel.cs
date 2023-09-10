@@ -1,5 +1,8 @@
 ﻿using EmployeeTaskAssignmentSystem.Data;
 using EmployeeTaskAssignmentSystem.Model;
+using EmployeeTaskAssignmentSystem.Utility;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace EmployeeTaskAssignmentSystem.ViewModel
@@ -19,7 +22,17 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             InProgressTasks = appDbContext.Tasks.Count(t => t.Status == TaskStatus.InProgress);
             DoneTasks = appDbContext.Tasks.Count(t => t.Status == TaskStatus.Done);
             NotStartedTasks = appDbContext.Tasks.Count(t => t.Status == TaskStatus.NotStarted);
+            ChartData = new List<ChartItem>
+            {
+                new ChartItem("Total Tasks", TotalTasks),
+                new ChartItem("Pending Tasks", PendingTasks),
+                new ChartItem("In Progress Tasks", InProgressTasks),
+                new ChartItem("Done Tasks", DoneTasks),
+                new ChartItem("Not Started Tasks", NotStartedTasks),
+                // Add more data items as needed
+            };
         }
+   
 
         private int _totalEmployees;
         public int TotalEmployees
@@ -103,6 +116,20 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 }
             }
         }
+
+        public List<ChartItem> ChartData { get; private set; }
+        public class ChartItem
+        {
+            public ChartItem(string label, int value)
+            {
+                Label = label;
+                Value = value;
+            }
+
+            public string Label { get; private set; }
+            public int Value { get; private set; }
+        }
+
     }
 }
 

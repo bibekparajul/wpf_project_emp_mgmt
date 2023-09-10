@@ -1,6 +1,7 @@
 ﻿
 FE:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\App.xaml;;
 FE:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\MainWindow.xaml;;
+FE:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\View\EditModalTask.xaml;;
 FE:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\View\EmployeeDashBoardLoginView.xaml;;
 FE:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\View\EmployeeHomePage.xaml;;
 FE:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\View\EmployeeMainWindowView.xaml;;
@@ -13,5 +14,4 @@ FE:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\Vi
 FE:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\View\ModalTask.xaml;;
 FE:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\View\TaskPageView.xaml;;
 FE:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\View\UCLandingPage.xaml;;
-FE:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\View\EditModalTask.xaml;;
 

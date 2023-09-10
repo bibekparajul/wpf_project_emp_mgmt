@@ -17,6 +17,7 @@
     <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore\6.0.21\buildTransitive\net6.0\Microsoft.EntityFrameworkCore.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore\6.0.21\buildTransitive\net6.0\Microsoft.EntityFrameworkCore.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgSyncfusion_SfChart_WPF Condition=" '$(PkgSyncfusion_SfChart_WPF)' == '' ">C:\Users\Dell\.nuget\packages\syncfusion.sfchart.wpf\22.2.12</PkgSyncfusion_SfChart_WPF>
     <PkgLiveCharts_Wpf Condition=" '$(PkgLiveCharts_Wpf)' == '' ">C:\Users\Dell\.nuget\packages\livecharts.wpf\0.9.7</PkgLiveCharts_Wpf>
     <PkgFontAwesome_WPF Condition=" '$(PkgFontAwesome_WPF)' == '' ">C:\Users\Dell\.nuget\packages\fontawesome.wpf\4.7.0.9</PkgFontAwesome_WPF>
   </PropertyGroup>

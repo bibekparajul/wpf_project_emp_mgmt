@@ -7,6 +7,7 @@
     xmlns:local="clr-namespace:EmployeeTaskAssignmentSystem.View"
     xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
     xmlns:vm="clr-namespace:EmployeeTaskAssignmentSystem.ViewModel"
     Title="HomePageView"
     d:DesignHeight="800"
@@ -222,14 +223,41 @@
                 </StackPanel>
             </Border>
         </WrapPanel>
-        <StackPanel Grid.Row="2">
+        <!--<StackPanel Grid.Row="2">
             <Label
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Content="Chart here"
                 FontFamily="Roboto"
                 FontSize="20" />
-        </StackPanel>
+        </StackPanel>-->
+        <!--<syncfusion:SfChart Grid.Row="2">
+            <syncfusion:SfChart.PrimaryAxis>
+                <syncfusion:CategoryAxis />
+            </syncfusion:SfChart.PrimaryAxis>
+            <syncfusion:SfChart.SecondaryAxis>
+                <syncfusion:NumericalAxis />
+            </syncfusion:SfChart.SecondaryAxis>
+            <syncfusion:BarSeries ItemsSource="{Binding ChartData}" XBindingPath="Label" YBindingPath="Value" />
+        </syncfusion:SfChart>-->
+
+        <syncfusion:SfChart Grid.Row="2">
+            <syncfusion:SfChart.PrimaryAxis>
+                <syncfusion:CategoryAxis Header="Task Status" />
+            </syncfusion:SfChart.PrimaryAxis>
+
+            <syncfusion:SfChart.SecondaryAxis>
+                <syncfusion:NumericalAxis Header="Task Count" />
+            </syncfusion:SfChart.SecondaryAxis>
+
+            <syncfusion:BarSeries
+                ItemsSource="{Binding ChartData}"
+                Label="Task Count"
+                ShowTooltip="True"
+                XBindingPath="Label"
+                YBindingPath="Value" />
+        </syncfusion:SfChart>
+
 
     </Grid>
 </Page>
