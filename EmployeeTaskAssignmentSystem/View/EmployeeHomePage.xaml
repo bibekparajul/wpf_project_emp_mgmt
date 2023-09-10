@@ -6,6 +6,7 @@
     xmlns:fa="http://schemas.fontawesome.io/icons/"
     xmlns:local="clr-namespace:EmployeeTaskAssignmentSystem.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
     xmlns:vm="clr-namespace:EmployeeTaskAssignmentSystem.ViewModel"
     Title="EmployeeHomePage"
     d:DesignHeight="450"
@@ -21,27 +22,8 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <WrapPanel
-            Grid.Row="0"
-            Margin="10"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            Orientation="Horizontal">
-            <Label
-                VerticalAlignment="Center"
-                Content="Employee Task Assignment System"
-                FontFamily="Roboto"
-                FontSize="20"
-                FontWeight="SemiBold" />
-        </WrapPanel>
 
-        <WrapPanel
-            Grid.Row="1"
-            Grid.RowSpan="2"
-            Height="350"
-            Margin="10,10,0,5"
-            VerticalAlignment="Top">
-
+        <WrapPanel Margin="10,10,0,5">
             <Border
                 Width="200"
                 Margin="10"
@@ -62,11 +44,11 @@
                         FontSize="20"
                         FontWeight="SemiBold"
                         Text="Total Tasks" />
-                    <!--<TextBlock
+                    <TextBlock
                         HorizontalAlignment="Center"
                         FontSize="24"
                         FontWeight="Bold"
-                        Text="{Binding TotalTasks}" />-->
+                        Text="{Binding TotalTasks}" />
                 </StackPanel>
             </Border>
             <Border
@@ -151,8 +133,50 @@
                         FontWeight="Bold" />
                 </StackPanel>
             </Border>
+            <Border
+                Width="200"
+                Margin="10"
+                BorderBrush="Gray"
+                BorderThickness="1"
+                CornerRadius="5">
+                <StackPanel Margin="10" Orientation="Vertical">
+                    <fa:ImageAwesome
+                        Name="TaskNotStarted"
+                        Width="80"
+                        Height="80"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Icon="Spinner" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontFamily="Roboto"
+                        FontSize="20"
+                        FontWeight="SemiBold"
+                        Text="Task Not Started" />
+                    <Label
+                        HorizontalAlignment="Center"
+                        Content="{Binding NotStartedTasks}"
+                        FontSize="24"
+                        FontWeight="Bold" />
+                </StackPanel>
+            </Border>
         </WrapPanel>
+        <syncfusion:SfChart Grid.Row="2">
+            <syncfusion:SfChart.PrimaryAxis>
+                <syncfusion:CategoryAxis Header="Task Status" />
+            </syncfusion:SfChart.PrimaryAxis>
 
+            <syncfusion:SfChart.SecondaryAxis>
+                <syncfusion:NumericalAxis Header="Task Count" />
+            </syncfusion:SfChart.SecondaryAxis>
 
+            <syncfusion:BarSeries
+                ItemsSource="{Binding ChartData}"
+                Label="Task Count"
+                ShowTooltip="True"
+                XBindingPath="Label"
+                YBindingPath="Value" />
+        </syncfusion:SfChart>
     </Grid>
 </Page>
+

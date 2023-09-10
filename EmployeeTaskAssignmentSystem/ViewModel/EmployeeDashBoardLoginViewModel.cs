@@ -2,10 +2,13 @@
 using EmployeeTaskAssignmentSystem.Data;
 using EmployeeTaskAssignmentSystem.Model;
 using EmployeeTaskAssignmentSystem.View;
+using Syncfusion.UI.Xaml.Charts;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using static EmployeeTaskAssignmentSystem.ViewModel.HomePageViewModel;
 
 namespace EmployeeTaskAssignmentSystem.ViewModel
 {
@@ -87,6 +90,19 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 {
                     _notStartedTasks = value;
                     OnPropertyChanged(nameof(NotStartedTasks));
+                }
+            }
+        }
+        private int _totalTasks;
+        public int TotalTasks
+        {
+            get => _totalTasks;
+            set
+            {
+                if (_totalTasks != value)
+                {
+                    _totalTasks = value;
+                    OnPropertyChanged(nameof(TotalTasks));
                 }
             }
         }
@@ -415,6 +431,8 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             }
         }
 
+        public List<ChartItem> ChartData { get; private set; }
+
         public void EmployeeRetrieve()
         {
             // Filter tasks based on UserEmail
@@ -425,6 +443,18 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             DoneTasks = userTasks.Count(t => t.Status == TaskStatus.Done);
             NotStartedTasks = userTasks.Count(t => t.Status == TaskStatus.NotStarted);
             InProgressTasks = userTasks.Count(t => t.Status == TaskStatus.InProgress);
+            TotalTasks = userTasks.Count();
+            ChartData = new List<ChartItem>
+            {
+                new ChartItem("Total Tasks", TotalTasks),
+                new ChartItem("Pending Tasks", PendingTasks),
+                new ChartItem("In Progress Tasks", InProgressTasks),
+                new ChartItem("Done Tasks", DoneTasks),
+                new ChartItem("Not Started Tasks", NotStartedTasks),
+                // Add more data items as needed
+            };
+
+
 
             if (userTasks.Count > 0)
             {
