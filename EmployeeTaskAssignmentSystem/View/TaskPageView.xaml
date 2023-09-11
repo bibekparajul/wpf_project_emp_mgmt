@@ -54,6 +54,23 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>-->
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <Label
+                Margin="10,0,0,0"
+                VerticalAlignment="Bottom"
+                Content="Search Task by Email"
+                FontFamily="Roboto"
+                FontSize="14"
+                FontWeight="SemiBold" />
+            <TextBox
+                Grid.Column="0"
+                Width="200"
+                Height="30"
+                Margin="10,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Text="{Binding AssignedToSearchText, UpdateSourceTrigger=PropertyChanged}" />
+        </StackPanel>
         <Button
             Grid.Column="1"
             Margin="10,20,10,0"
@@ -132,7 +149,7 @@
             VerticalAlignment="Top"
             AutoGenerateColumns="False"
             CanUserAddRows="False"
-            ItemsSource="{Binding Tasks}"
+            ItemsSource="{Binding FilteredTasks}"
             SelectedItem="{Binding SelectedTask}">
             <DataGrid.Columns>
                 <DataGridTextColumn

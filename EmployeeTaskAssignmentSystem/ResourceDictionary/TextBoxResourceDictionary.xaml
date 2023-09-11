@@ -29,4 +29,12 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="PlaceholderTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Foreground" Value="Gray" />
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="Foreground" Value="Black" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

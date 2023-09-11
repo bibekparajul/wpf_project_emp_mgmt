@@ -48,7 +48,53 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         public ICommand CreateButton { get; }
         public ICommand UpdateButton { get; }
         public ICommand DeleteButton { get; }
+        private string _searchText;
+        public string SearchText
+        {
+            get => _searchText;
+            set
+            {
+                if (_searchText != value)
+                {
+                    _searchText = value;
+                    OnPropertyChanged(nameof(SearchText));
+                    FilterEmployees();
+                }
+            }
+        }
 
+        private ObservableCollection<EmployeeModel> _filteredEmployees;
+        public ObservableCollection<EmployeeModel> FilteredEmployees
+        {
+            get => _filteredEmployees;
+            set
+            {
+                if (_filteredEmployees != value)
+                {
+                    _filteredEmployees = value;
+                    OnPropertyChanged(nameof(FilteredEmployees));
+                }
+            }
+        }
+        private void FilterEmployees()
+        {
+            if (string.IsNullOrWhiteSpace(SearchText))
+            {
+                // If search text is empty, show all employees
+                FilteredEmployees = new ObservableCollection<EmployeeModel>(Employees);
+            }
+            else
+            {
+                // Otherwise, filter employees by name or email containing the search text
+                string searchText = SearchText.Trim().ToLower();
+                FilteredEmployees = new ObservableCollection<EmployeeModel>(
+                    Employees.Where(e =>
+                        e.Name.ToLower().Contains(searchText) ||
+                        e.Email.ToLower().Contains(searchText)
+                    )
+                );
+            }
+        }
         private EmployeeModel _employee { get; set; }
         public EmployeeModel Employee
         {
@@ -84,7 +130,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 }
             }
         }
-
         public EmployeePageViewModel()
         {
             Employee = new EmployeeModel();
@@ -93,6 +138,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             CreateButton = new RelayCommand(CreateEmployee);
             UpdateButton = new RelayCommand(UpdateEmployee);
             DeleteButton = new RelayCommand(DeleteEmployee);
+            FilteredEmployees = new ObservableCollection<EmployeeModel>(Employees);
         }
         private void CreateEmployee()
         {

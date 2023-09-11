@@ -111,6 +111,49 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             }
         }
 
+        private string _assignedToSearchText;
+        public string AssignedToSearchText
+        {
+            get => _assignedToSearchText;
+            set
+            {
+                if (_assignedToSearchText != value)
+                {
+                    _assignedToSearchText = value;
+                    OnPropertyChanged(nameof(AssignedToSearchText));
+                    UpdateFilteredTasks();
+                }
+            }
+        }
+
+        private ObservableCollection<TaskModel> _filteredTasks;
+        public ObservableCollection<TaskModel> FilteredTasks
+        {
+            get => _filteredTasks;
+            set
+            {
+                if (_filteredTasks != value)
+                {
+                    _filteredTasks = value;
+                    OnPropertyChanged(nameof(FilteredTasks));
+                }
+            }
+        }
+
+        private void UpdateFilteredTasks()
+        {
+            if (string.IsNullOrWhiteSpace(AssignedToSearchText))
+            {
+                FilteredTasks = new ObservableCollection<TaskModel>(Tasks);
+            }
+            else
+            {
+                FilteredTasks = new ObservableCollection<TaskModel>(
+                    Tasks.Where(task => task.AssignedTo.IndexOf(AssignedToSearchText, StringComparison.OrdinalIgnoreCase) >= 0)
+                );
+            }
+        }
+
 
 
         public List<string> EmployeeEmails { get; set; }
@@ -123,6 +166,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             CreateButton = new RelayCommand(CreateTask);
             EmployeeEmails = Employees.Select(employee => employee.Email).ToList();
             DeleteButton = new RelayCommand(DeleteTask);
+            FilteredTasks = new ObservableCollection<TaskModel>(Tasks);
         }
         private void CreateTask()
         {
