@@ -1,5 +1,6 @@
 ﻿using EmployeeTaskAssignmentSystem.Command;
 using EmployeeTaskAssignmentSystem.View;
+using System.Windows;
 using System.Windows.Input;
 
 namespace EmployeeTaskAssignmentSystem.ViewModel
@@ -21,12 +22,15 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         public ICommand EmployeeButtonCommand { get; }
 
         public ICommand TaskButtonCommand { get; }
+        public ICommand LogoutCommand { get; }
+
         public MainViewModel()
         {
             // Initialize commands
             HomeButtonCommand = new RelayCommand(ShowHomePage);
             EmployeeButtonCommand = new RelayCommand(ShowEmployeePage);
             TaskButtonCommand = new RelayCommand(ShowTaskPage);
+            LogoutCommand = new RelayCommand(Logout);
             ShowHomePage();
         }
 
@@ -42,6 +46,14 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         private void ShowTaskPage()
         {
             CurrentPage = new TaskPageView();
+        }
+        private void Logout()
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to logout?", "Logout Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
         }
     }
 }

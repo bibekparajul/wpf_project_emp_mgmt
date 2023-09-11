@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\EditAdminModalTask.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\EditModalEmployee.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -64,6 +67,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ResourceDictionary\TextBoxResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditAdminModalTask.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\EditModalEmployee.xaml">

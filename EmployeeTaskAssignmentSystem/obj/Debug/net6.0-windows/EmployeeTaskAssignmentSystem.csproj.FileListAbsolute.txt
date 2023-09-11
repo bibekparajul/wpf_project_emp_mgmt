@@ -45,6 +45,7 @@ E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\ResourceDictionary\RichTextBoxResourceDictionary.baml
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\ResourceDictionary\TextBoxResourceDictionary.baml
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\MainWindow.g.cs
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EditModalEmployee.g.cs
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EditModalTask.g.cs
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EmployeeDashBoardLoginView.g.cs
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EmployeeHomePage.g.cs
@@ -64,6 +65,7 @@ E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\EmployeeTaskAssignmentSystem_MarkupCompile.lref
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\App.baml
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\MainWindow.baml
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EditModalEmployee.baml
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EditModalTask.baml
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EmployeeDashBoardLoginView.baml
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EmployeeHomePage.baml
@@ -88,5 +90,5 @@ E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\EmployeeTaskAssignmentSystem.pdb
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\EmployeeTaskAssignmentSystem.genruntimeconfig.cache
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\ref\EmployeeTaskAssignmentSystem.dll
-E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EditModalEmployee.g.cs
-E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EditModalEmployee.baml
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EditAdminModalTask.g.cs
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EditAdminModalTask.baml

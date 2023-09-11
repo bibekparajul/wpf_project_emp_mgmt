@@ -1,6 +1,7 @@
 ﻿using EmployeeTaskAssignmentSystem.Command;
 using EmployeeTaskAssignmentSystem.Data;
 using EmployeeTaskAssignmentSystem.Model;
+using EmployeeTaskAssignmentSystem.View;
 using System;
 using System.Linq;
 using System.Windows;
@@ -81,6 +82,8 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                             _appDbContext.SaveChanges();
 
                             MessageBox.Show("Employee updated successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                            Application.Current.Windows.OfType<EditModalEmployee>().FirstOrDefault()?.Close();
+
                         }
                         else
                         {

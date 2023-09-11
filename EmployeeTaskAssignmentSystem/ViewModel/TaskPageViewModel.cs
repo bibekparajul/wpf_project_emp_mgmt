@@ -54,8 +54,23 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 return _openTaskModalCommand;
             }
         }
+
+        private ICommand _editTaskCommand;
+        public ICommand EditTaskCommand
+        {
+            get
+            {
+                if (_editTaskCommand == null)
+                {
+                    _editTaskCommand = new RelayCommand(OpenEditTaskModal);
+                }
+                return _editTaskCommand;
+            }
+        }
+        private EditAdminTaskViewModel _editTaskViewModel;
         private void OpenTaskModal()
         {
+            Task = new TaskModel();
             ModalTask modalView = new ModalTask();
             modalView.DataContext = this;
             modalView.ShowDialog();
@@ -139,7 +154,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 }
             }
         }
-
         private void UpdateFilteredTasks()
         {
             if (string.IsNullOrWhiteSpace(AssignedToSearchText))
@@ -153,9 +167,27 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 );
             }
         }
-
-
-
+        private void OpenEditTaskModal()
+        {
+            if (SelectedTask != null)
+            {
+                _editTaskViewModel.Task = SelectedTask;
+                _editTaskViewModel.EmployeeEmails = EmployeeEmails;
+                _editTaskViewModel.SelectedEmployee = SelectedTask.AssignedTo;
+                _editTaskViewModel.TaskStatus = SelectedTask.Status;
+                EditAdminModalTask editTaskView = new EditAdminModalTask();
+                editTaskView.DataContext = _editTaskViewModel;
+                editTaskView.ShowDialog();
+                if (editTaskView.DialogResult == true)
+                {
+                    Tasks = new ObservableCollection<TaskModel>(appDbContext.Tasks);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select a task to edit.");
+            }
+        }
         public List<string> EmployeeEmails { get; set; }
         public TaskPageViewModel()
         {
@@ -167,6 +199,9 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             EmployeeEmails = Employees.Select(employee => employee.Email).ToList();
             DeleteButton = new RelayCommand(DeleteTask);
             FilteredTasks = new ObservableCollection<TaskModel>(Tasks);
+            _editTaskViewModel = new EditAdminTaskViewModel();
+            SelectedStatus = TaskStatus.Pending;
+
         }
         private void CreateTask()
         {
@@ -185,6 +220,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             // Save changes to the database
             appDbContext.SaveChanges();
             Tasks.Add(newTask);
+            FilteredTasks.Add(newTask);
             MessageBox.Show("Task Added Successfully");
             Reset();
             Application.Current.Windows.OfType<ModalTask>().FirstOrDefault()?.Close();
@@ -200,6 +236,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                     appDbContext.Tasks.Remove(SelectedTask);
                     appDbContext.SaveChanges();
                     Tasks.Remove(SelectedTask);
+                    FilteredTasks.Remove(SelectedTask);
                     MessageBox.Show("Task deleted successfully.");
                     SelectedTask = null;
                 }
