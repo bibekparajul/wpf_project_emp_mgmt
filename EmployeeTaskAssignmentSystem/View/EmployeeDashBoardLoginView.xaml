@@ -28,18 +28,6 @@
             <Setter Property="FontWeight" Value="Medium" />
             <Setter Property="Foreground" Value="black" />
         </Style>
-        <!--  TextBox style  -->
-        <Style x:Key="TextBoxStyle" TargetType="TextBox">
-            <Setter Property="Height" Value="28" />
-            <Setter Property="Margin" Value="0,5,0,0" />
-            <Setter Property="Padding" Value="10,0,0,0" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="BorderThickness" Value="0,0,0,0" />
-            <Setter Property="FontFamily" Value="Roboto" />
-            <Setter Property="FontSize" Value="15" />
-            <Setter Property="FontWeight" Value="Medium" />
-            <Setter Property="Foreground" Value="black" />
-        </Style>
 
     </Window.Resources>
     <Grid>
@@ -54,66 +42,43 @@
             CornerRadius="5">
             <StackPanel Grid.Column="0" Margin="10">
                 <Label
-                    Margin="0,40"
+                    Margin="10,40"
                     Content="ETAS"
                     FontFamily="roboto"
                     FontSize="28"
                     FontWeight="Bold"
-                    Foreground="#BE263B" />
-                <TextBlock
+                    Foreground="#BE263B"
+                    Style="{StaticResource CustomLabelStyle}" />
+                <Label
                     Margin="10,5"
+                    Content="Your Id"
                     FontSize="20"
-                    Text="Employee Id" />
+                    Style="{StaticResource CustomLabelStyle}" />
                 <Border
                     Margin="10,0,10,0"
                     BorderBrush="gray"
                     BorderThickness="1.5"
                     CornerRadius="3">
-                    <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding EmpId}" />
+                    <TextBox Style="{StaticResource LoginTextBoxStyle}" Text="{Binding EmpId}" />
                 </Border>
-                <TextBlock
+                <Label
                     Margin="10,5"
+                    Content="Your Email"
                     FontSize="20"
-                    Text="Your Email" />
+                    Style="{StaticResource CustomLabelStyle}" />
                 <Border
                     Margin="10,0,10,0"
                     BorderBrush="gray"
                     BorderThickness="1.5"
                     CornerRadius="3">
-                    <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding UserEmail}" />
+                    <TextBox Style="{StaticResource LoginTextBoxStyle}" Text="{Binding UserEmail}" />
 
                     <!--<PasswordBox Style="{StaticResource PasswordBoxStyle}" />-->
                 </Border>
                 <Button
-                    Margin="10,30,10,0"
-                    BorderThickness="0"
                     Command="{Binding RetrieveTaskCommand}"
                     Content="Proceed to view task"
-                    Cursor="Hand"
-                    FontFamily="Roboto"
-                    FontSize="20"
-                    Foreground="White">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#BE263B" />
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#28AEED" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border
-                                Height="40"
-                                Background="{TemplateBinding Background}"
-                                CornerRadius="10">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
+                    Style="{StaticResource CustomButtonStyle}" />
             </StackPanel>
         </Border>
         <Image

@@ -48,6 +48,21 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ResourceDictionary\ButtonResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionary\LabelResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionary\LoginTextBoxResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionary\RichTextBoxResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionary\TextBoxResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\EditModalTask.xaml">
       <SubType>Designer</SubType>
     </Page>

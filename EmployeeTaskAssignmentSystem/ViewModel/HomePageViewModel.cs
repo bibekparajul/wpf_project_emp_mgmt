@@ -10,7 +10,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
     public class HomePageViewModel : ViewModelBase
     {
         private readonly AppDbContext appDbContext;
-
         public HomePageViewModel()
         {
             appDbContext = new AppDbContext();
@@ -33,7 +32,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             };
         }
    
-
         private int _totalEmployees;
         public int TotalEmployees
         {
@@ -116,7 +114,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 }
             }
         }
-
         public List<ChartItem> ChartData { get; private set; }
         public class ChartItem
         {

@@ -5,6 +5,15 @@
     xmlns:local="clr-namespace:EmployeeTaskAssignmentSystem"
     StartupUri="View/LandingWindowView.xaml">
     <Application.Resources>
-        <FontFamily x:Key="FontAwesome">/Fonts/fontawesome-webfont.ttf#FontAwesome</FontFamily>
+        <ResourceDictionary>
+            <FontFamily x:Key="FontAwesome">/Fonts/fontawesome-webfont.ttf#FontAwesome</FontFamily>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ResourceDictionary/TextBoxResourceDictionary.xaml" />
+                <ResourceDictionary Source="ResourceDictionary/LabelResourceDictionary.xaml" />
+                <ResourceDictionary Source="ResourceDictionary/RichTextBoxResourceDictionary.xaml" />
+                <ResourceDictionary Source="ResourceDictionary/ButtonResourceDictionary.xaml" />
+                <ResourceDictionary Source="ResourceDictionary/LoginTextBoxResourceDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
