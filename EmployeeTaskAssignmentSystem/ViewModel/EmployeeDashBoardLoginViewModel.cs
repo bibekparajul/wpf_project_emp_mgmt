@@ -2,7 +2,6 @@
 using EmployeeTaskAssignmentSystem.Data;
 using EmployeeTaskAssignmentSystem.Model;
 using EmployeeTaskAssignmentSystem.View;
-using Syncfusion.UI.Xaml.Charts;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;

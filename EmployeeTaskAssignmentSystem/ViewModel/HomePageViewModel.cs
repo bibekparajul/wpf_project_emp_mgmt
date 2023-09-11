@@ -1,8 +1,6 @@
 ﻿using EmployeeTaskAssignmentSystem.Data;
 using EmployeeTaskAssignmentSystem.Model;
-using EmployeeTaskAssignmentSystem.Utility;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace EmployeeTaskAssignmentSystem.ViewModel
@@ -31,7 +29,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 // Add more data items as needed
             };
         }
-   
+
         private int _totalEmployees;
         public int TotalEmployees
         {
