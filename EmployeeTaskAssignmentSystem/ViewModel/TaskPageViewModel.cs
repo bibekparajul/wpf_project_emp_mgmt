@@ -203,7 +203,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             FilteredTasks = new ObservableCollection<TaskModel>(Tasks);
             _editTaskViewModel = new EditAdminTaskViewModel();
             SelectedStatus = TaskStatus.Pending;
-            _emailService = new EmailService("smtp.gmail.com", 587, "trafficfine11@gmail.com", "etdytbbrihvhkzbo");
+            _emailService = new EmailService("smtp.gmail.com", 587, "trafficfine11@gmail.com", "password");
 
 
         }
