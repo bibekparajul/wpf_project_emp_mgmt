@@ -501,6 +501,8 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 employeeHomePage.DataContext = this;
                 EmployeeRetrieve();
                 employeeHomePage.Show();
+                Application.Current.Windows.OfType<EmployeeDashBoardLoginView>().FirstOrDefault()?.Close();
+
             }
             else
             {
@@ -522,15 +524,29 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             // Set the EmployeeTaskRetrievalPage as the content of the MainFrame
             CurrentPage = employeeTaskRetrievalPage;
         }
+        //private void Logout()
+        //{
+        //    MessageBoxResult result = MessageBox.Show("Are you sure you want to logout?", "Logout Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+        //    if (result == MessageBoxResult.Yes)
+        //    {
+        //        //Application.Current?.MainWindow?.Close();
+        //        Application.Current.Shutdown();
+        //    }
+        //}
+
         private void Logout()
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you want to logout?", "Logout Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                //Application.Current?.MainWindow?.Close();
-                Application.Current.Shutdown();
+                var employeeDashboardLoginView = new EmployeeDashBoardLoginView();
+                employeeDashboardLoginView.Show();
+
+                // Close the current window (EmployeeMainWindowView)
+                Application.Current.Windows.OfType<EmployeeMainWindowView>().FirstOrDefault()?.Close();
             }
         }
+
         private void ShowHomeDashBoard()
         {
             EmployeeRetrieve();

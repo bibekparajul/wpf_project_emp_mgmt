@@ -83,6 +83,12 @@
                     Command="{Binding LoginButtonCommand}"
                     Content="Login"
                     Style="{StaticResource CustomButtonStyle}" />
+                <Button
+                    Width="300"
+                    Height="40"
+                    Margin="5,5,0,0"
+                    Command="{Binding NavigateToEmployeeDashboardCommand}"
+                    Content="Proceed As Employee" />
             </StackPanel>
         </Border>
         <Image

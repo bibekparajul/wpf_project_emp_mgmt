@@ -1,6 +1,7 @@
 ﻿using EmployeeTaskAssignmentSystem.Command;
 using EmployeeTaskAssignmentSystem.Data;
 using EmployeeTaskAssignmentSystem.Model;
+using EmployeeTaskAssignmentSystem.View;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
@@ -11,6 +12,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
     {
         public AppDbContext appDbContext { get; set; }
         public ICommand LoginButtonCommand { get; set; }
+        public ICommand NavigateToEmployeeDashboardCommand { get; }
         private UserModel _user { get; set; }
         public UserModel User
         {
@@ -29,6 +31,8 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             User = new UserModel();
             appDbContext = new AppDbContext();
             LoginButtonCommand = new RelayCommand(GrantAccess);
+            NavigateToEmployeeDashboardCommand = new RelayCommand(NavigateToEmployeeDashboard);
+
         }
         private void GrantAccess()
         {
@@ -37,12 +41,20 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             {
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
-                Application.Current.MainWindow.Close();
+                Application.Current.Windows.OfType<LoginView>().FirstOrDefault()?.Close();
             }
             else
             {
                 MessageBox.Show("Invalid credentials");
             }
+        }
+
+        private void NavigateToEmployeeDashboard()
+        {
+            var employeeDashboardView = new EmployeeDashBoardLoginView();
+
+            employeeDashboardView.Show();
+            Application.Current.Windows.OfType<LoginView>().FirstOrDefault()?.Close();
         }
 
     }
