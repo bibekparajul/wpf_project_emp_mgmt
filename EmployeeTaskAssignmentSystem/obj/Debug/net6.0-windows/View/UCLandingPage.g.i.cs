@@ -54,7 +54,7 @@ namespace EmployeeTaskAssignmentSystem.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EmployeeTaskAssignmentSystem;component/view/uclandingpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EmployeeTaskAssignmentSystem;V1.0.0.0;component/view/uclandingpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\UCLandingPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

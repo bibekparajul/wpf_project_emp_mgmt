@@ -34,7 +34,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 return Enum.GetNames(typeof(TaskStatus)).ToList();
             }
         }
-
         public List<string> EmployeeEmails { get; set; }
         public string SelectedEmployee { get; set; }
         public TaskModel Task
