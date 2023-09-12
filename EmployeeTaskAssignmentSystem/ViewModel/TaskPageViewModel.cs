@@ -1,6 +1,7 @@
 ﻿using EmployeeTaskAssignmentSystem.Command;
 using EmployeeTaskAssignmentSystem.Data;
 using EmployeeTaskAssignmentSystem.Model;
+using EmployeeTaskAssignmentSystem.Utility;
 using EmployeeTaskAssignmentSystem.View;
 using System;
 using System.Collections.Generic;
@@ -188,6 +189,8 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             }
         }
         public List<string> EmployeeEmails { get; set; }
+
+        private readonly EmailService _emailService;
         public TaskPageViewModel()
         {
             Task = new TaskModel();
@@ -200,6 +203,8 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             FilteredTasks = new ObservableCollection<TaskModel>(Tasks);
             _editTaskViewModel = new EditAdminTaskViewModel();
             SelectedStatus = TaskStatus.Pending;
+            _emailService = new EmailService("smtp.gmail.com", 587, "trafficfine11@gmail.com", "etdytbbrihvhkzbo");
+
 
         }
         private void CreateTask()
@@ -226,7 +231,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 Description = Task.Description,
                 Status = SelectedStatus,
                 AssignedTo = SelectedEmployee,
-                CreatedOn = DateTime.Now, 
+                CreatedOn = DateTime.Now,
 
             };
 
@@ -240,6 +245,28 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             MessageBox.Show("Task Added Successfully");
             Reset();
             Application.Current.Windows.OfType<ModalTask>().FirstOrDefault()?.Close();
+            try
+            {
+                // Sending email to the assigned employee 
+                var assignedEmployee = Tasks.FirstOrDefault(t => t.AssignedTo == newTask.AssignedTo);
+                if (assignedEmployee != null)
+                {
+                    string emailSubject = "New Task Assigned";
+                    string emailBody = $"A new task with ID {newTask.Id} and title '{newTask.Title}' has been assigned to you.";
+
+                    // Send the email
+                    _emailService.SendEmail(assignedEmployee.AssignedTo, emailSubject, emailBody);
+                }
+                else
+                {
+                    MessageBox.Show("Assigned employee not found.");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Couldn't send the email");
+            }
+
         }
         private void DeleteTask()
         {
