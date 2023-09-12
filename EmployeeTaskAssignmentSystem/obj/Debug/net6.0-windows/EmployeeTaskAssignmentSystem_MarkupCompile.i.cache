@@ -16,5 +16,5 @@ E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\App
 219-196924622
 MainWindow.xaml;ResourceDictionary\ButtonResourceDictionary.xaml;ResourceDictionary\LabelResourceDictionary.xaml;ResourceDictionary\LoginTextBoxResourceDictionary.xaml;ResourceDictionary\RichTextBoxResourceDictionary.xaml;ResourceDictionary\TextBoxResourceDictionary.xaml;View\EditAdminModalTask.xaml;View\EditModalEmployee.xaml;View\EditModalTask.xaml;View\EmployeeDashBoardLoginView.xaml;View\EmployeeHomePage.xaml;View\EmployeeMainWindowView.xaml;View\EmployeePageView.xaml;View\EmployeeTaskRetrievalPage.xaml;View\HomePageView.xaml;View\LandingWindowView.xaml;View\LoginView.xaml;View\ModalEmployee.xaml;View\ModalTask.xaml;View\TaskPageView.xaml;View\UCLandingPage.xaml;
 
-False
+True
 

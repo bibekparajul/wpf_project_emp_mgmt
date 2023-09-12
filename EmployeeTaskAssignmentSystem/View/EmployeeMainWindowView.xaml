@@ -8,8 +8,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:EmployeeTaskAssignmentSystem.ViewModel"
     Title="EmployeeMainWindowView"
-    Width="800"
-    Height="450"
+    Width="1375"
+    Height="700"
+    MinWidth="1375"
+    MinHeight="700"
     WindowState="Maximized"
     mc:Ignorable="d">
     <Window.DataContext>

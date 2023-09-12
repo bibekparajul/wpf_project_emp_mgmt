@@ -16,15 +16,31 @@
     </Page.DataContext>
 
     <Grid Background="White">
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <Label Content="Search task" Style="{StaticResource CustomLabelStyle}" />
+            <TextBox
+                Width="400"
+                Height="40"
+                Margin="2,5,0,0"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center"
+                FontSize="14"
+                Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}" />
+        </StackPanel>
         <ListView
             Name="EmployeeItemList"
+            Grid.Row="1"
+            Grid.RowSpan="2"
             Grid.Column="1"
+            Grid.ColumnSpan="2"
             MaxWidth="1080"
             Margin="2,10,0,10"
             VerticalAlignment="Stretch"

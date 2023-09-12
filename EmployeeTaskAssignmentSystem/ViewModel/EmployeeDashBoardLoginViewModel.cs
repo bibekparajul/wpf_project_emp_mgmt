@@ -2,6 +2,7 @@
 using EmployeeTaskAssignmentSystem.Data;
 using EmployeeTaskAssignmentSystem.Model;
 using EmployeeTaskAssignmentSystem.View;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -121,6 +122,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         public ICommand HomeButtonCommand { get; }
         public ICommand EmployeeViewTaskButtonCommand { get; }
 
+
         private ICommand _openEditModalCommand;
         public ICommand OpenEditModalCommand
         {
@@ -215,6 +217,36 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                     _filteredTasks = value;
                     OnPropertyChanged(nameof(FilteredTasks));
                 }
+            }
+        }
+        private string searchKeyword;
+        public string SearchKeyword
+        {
+            get { return searchKeyword; }
+            set
+            {
+                if (searchKeyword != value)
+                {
+                    searchKeyword = value;
+                    OnPropertyChanged(nameof(SearchKeyword));
+                    UpdateFilteredTasks();
+                }
+            }
+        }
+        // Serarching Filter
+        private void UpdateFilteredTasks()
+        {
+            if (string.IsNullOrWhiteSpace(SearchKeyword))
+            {
+                FilteredTasks = new ObservableCollection<TaskModel>(Tasks.Where(task => task.AssignedTo == UserEmail));
+            }
+            else
+            {
+                FilteredTasks = new ObservableCollection<TaskModel>(
+                    Tasks.Where(task =>
+                        task.AssignedTo == UserEmail &&
+                        (task.Title.Contains(SearchKeyword, StringComparison.OrdinalIgnoreCase) ||
+                         task.Description.Contains(SearchKeyword, StringComparison.OrdinalIgnoreCase))));
             }
         }
         public ICommand RetrieveTaskCommand { get; }
@@ -571,16 +603,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             // Set the EmployeeTaskRetrievalPage as the content of the MainFrame
             CurrentPage = employeeTaskRetrievalPage;
         }
-        //private void Logout()
-        //{
-        //    MessageBoxResult result = MessageBox.Show("Are you sure you want to logout?", "Logout Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
-        //    if (result == MessageBoxResult.Yes)
-        //    {
-        //        //Application.Current?.MainWindow?.Close();
-        //        Application.Current.Shutdown();
-        //    }
-        //}
-
         private void Logout()
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you want to logout?", "Logout Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);

@@ -9,6 +9,9 @@
     Title="EmployeeDashBoardLoginView"
     Width="800"
     Height="450"
+    MinWidth="800"
+    MaxHeight="450"
+    ResizeMode="CanMinimize"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
