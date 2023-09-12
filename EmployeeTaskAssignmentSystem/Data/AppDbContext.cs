@@ -7,7 +7,7 @@ namespace EmployeeTaskAssignmentSystem.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = "Server=DESKTOP-JEURKMP\\SQLEXPRESS;Database=ETAS4;Trusted_Connection=True;";
+            string connectionString = "Server=DESKTOP-JEURKMP\\SQLEXPRESS;Database=ETAS2;Trusted_Connection=True;";
             optionsBuilder.UseSqlServer(connectionString);
         }
 

@@ -25,7 +25,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 return Enum.GetNames(typeof(TaskStatus)).ToList();
             }
         }
-
         public ObservableCollection<TaskModel> Tasks
         {
             get => _Tasks;
@@ -205,6 +204,21 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         }
         private void CreateTask()
         {
+            if (string.IsNullOrWhiteSpace(Task.Title))
+            {
+                MessageBox.Show("Please enter a title for the task.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(Task.Description))
+            {
+                MessageBox.Show("Please enter a description for the task.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(SelectedEmployee))
+            {
+                MessageBox.Show("Please select an employee to assign the task to.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             // Create a new task
             TaskModel newTask = new TaskModel
             {
@@ -212,6 +226,8 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 Description = Task.Description,
                 Status = SelectedStatus,
                 AssignedTo = SelectedEmployee,
+                CreatedOn = DateTime.Now, 
+
             };
 
             // Add the new task to the database and collection

@@ -1,4 +1,5 @@
 ﻿using EmployeeTaskAssignmentSystem.ViewModel;
+using System;
 
 namespace EmployeeTaskAssignmentSystem.Model
 {
@@ -16,6 +17,33 @@ namespace EmployeeTaskAssignmentSystem.Model
         private string _description;
         private TaskStatus _status;
         private string _assignedTo;
+        private DateTime _createdOn;
+        public DateTime CreatedOn
+        {
+            get => _createdOn;
+            set
+            {
+                if (_createdOn != value)
+                {
+                    _createdOn = value;
+                    OnPropertyChanged(nameof(CreatedOn));
+                }
+            }
+        }     
+        
+        private DateTime? _updatedOn;
+        public DateTime? UpdatedOn
+        {
+            get => _updatedOn;
+            set
+            {
+                if (_updatedOn != value)
+                {
+                    _updatedOn = value;
+                    OnPropertyChanged(nameof(UpdatedOn));
+                }
+            }
+        }
         public int Id
         {
             get => _id;

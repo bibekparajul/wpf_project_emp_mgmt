@@ -1,6 +1,7 @@
 ﻿using EmployeeTaskAssignmentSystem.Command;
 using EmployeeTaskAssignmentSystem.Data;
 using EmployeeTaskAssignmentSystem.Model;
+using EmployeeTaskAssignmentSystem.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -51,7 +52,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         }
 
         public ICommand UpdateButton { get; }
-
         public EditTaskViewModel()
         {
             appDbContext = new AppDbContext();
@@ -62,10 +62,11 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         {
             TaskModel taskModel = new TaskModel();
             TaskToEdit.Status = SelectedStatus;
+            TaskToEdit.UpdatedOn = DateTime.Now;
             appDbContext.Tasks.Update(TaskToEdit);
             appDbContext.SaveChanges();
-            taskModel.Status = SelectedStatus; ;
-            MessageBox.Show(taskModel.Status.ToString());
+            Application.Current.Windows.OfType<EditModalTask>().FirstOrDefault()?.Close();
+            taskModel.Status = SelectedStatus;
         }
     }
 

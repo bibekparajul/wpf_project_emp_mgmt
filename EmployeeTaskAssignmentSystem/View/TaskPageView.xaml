@@ -157,13 +157,21 @@
                     Binding="{Binding Id}"
                     Header="Id" />
                 <DataGridTextColumn
-                    Width="200"
+                    Width="100"
                     Binding="{Binding Title}"
                     Header="Title" />
                 <DataGridTextColumn
-                    Width="400"
+                    Width="300"
                     Binding="{Binding Description}"
                     Header="Description" />
+                <DataGridTextColumn
+                    Width="120"
+                    Binding="{Binding CreatedOn, StringFormat='yyyy-MM-dd HH:mm'}"
+                    Header="Created On" />
+                <DataGridTextColumn
+                    Width="120"
+                    Binding="{Binding UpdatedOn, StringFormat='yyyy-MM-dd HH:mm'}"
+                    Header="Updated On" />
                 <DataGridTextColumn
                     Width="100"
                     Binding="{Binding Status}"

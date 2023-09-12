@@ -8,7 +8,7 @@ namespace EmployeeTaskAssignmentSystem.Model
         private string _name { get; set; }
         private string _email { get; set; }
         private string _address { get; set; }
-        private int? _contact { get; set; }
+        private long? _contact { get; set; }
 
         public int Id
         {
@@ -62,7 +62,7 @@ namespace EmployeeTaskAssignmentSystem.Model
             }
         }
 
-        public int? Contact
+        public long? Contact
         {
             get => _contact;
             set

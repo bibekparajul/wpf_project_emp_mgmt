@@ -48,7 +48,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 MessageBox.Show("Invalid credentials");
             }
         }
-
         private void NavigateToEmployeeDashboard()
         {
             var employeeDashboardView = new EmployeeDashBoardLoginView();

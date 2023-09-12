@@ -9,14 +9,14 @@ namespace EmployeeTaskAssignmentSystem.View
     /// </summary>
     public partial class EditModalTask : Window
     {
-        private TaskDataService _taskDataService;
-        public TaskModel taskModel { get; set; }
+        //private TaskDataService _taskDataService;
+        //public TaskModel taskModel { get; set; }
 
         public EditModalTask()
         {
-            _taskDataService = new TaskDataService();
-            taskModel = new TaskModel();
-            taskModel = _taskDataService.GetSharedTask();
+            //_taskDataService = new TaskDataService();
+            //taskModel = new TaskModel();
+            //taskModel = _taskDataService.GetSharedTask();
             InitializeComponent();
         }
     }

@@ -58,7 +58,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             modalView.DataContext = this;
             modalView.ShowDialog();
         }
-
         public ICommand CreateButton { get; }
         public ICommand UpdateButton { get; }
         public ICommand DeleteButton { get; }
@@ -156,6 +155,52 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             _editEmployeeViewModel = new EditEmployeeViewModel();
 
         }
+
+        //private void CreateEmployee()
+        //{
+        //    if (string.IsNullOrWhiteSpace(Employee.Email))
+        //    {
+        //        MessageBox.Show("Please enter an email address.");
+        //        return;
+        //    }
+
+        //    if (Employees.Any(e => e.Email.Equals(Employee.Email, StringComparison.OrdinalIgnoreCase)))
+        //    {
+        //        MessageBox.Show("An employee with this email already exists.");
+        //        return;
+        //    }
+
+        //    if (Employee.Contact.HasValue && Employees.Any(e => e.Contact == Employee.Contact))
+        //    {
+        //        MessageBox.Show("An employee with this contact number already exists.");
+        //        return;
+        //    }
+
+        //    if (!IsValidContact(Employee.Contact))
+        //    {
+        //        MessageBox.Show("Invalid contact number. Please enter a 10-digit number.");
+        //        return;
+        //    }
+
+        //    EmployeeModel newEmployee = new EmployeeModel
+        //    {
+        //        Name = Employee.Name,
+        //        Email = Employee.Email,
+        //        Address = Employee.Address,
+        //        Contact = Employee.Contact
+        //    };
+
+        //    appDbContext.Employees.Add(newEmployee);
+        //    appDbContext.SaveChanges(); // Save changes to the database first
+        //    Employees.Add(newEmployee);
+        //    FilteredEmployees.Add(newEmployee);
+        //    OnPropertyChanged(nameof(Employees)); // Notify the UI about the change
+        //    MessageBox.Show("Employee Added Successfully");
+
+        //    Reset();
+        //    Application.Current.Windows.OfType<ModalEmployee>().FirstOrDefault()?.Close();
+        //}
+
         private void CreateEmployee()
         {
             if (string.IsNullOrWhiteSpace(Employee.Email))
@@ -163,13 +208,26 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 MessageBox.Show("Please enter an email address.");
                 return;
             }
-
+            if (!IsValidEmail(Employee.Email))
+            {
+                MessageBox.Show("Invalid email address format. Please enter a valid email address.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             if (Employees.Any(e => e.Email.Equals(Employee.Email, StringComparison.OrdinalIgnoreCase)))
             {
                 MessageBox.Show("An employee with this email already exists.");
                 return;
             }
-
+            if (Employee.Contact.HasValue && Employees.Any(e => e.Contact == Employee.Contact))
+            {
+                MessageBox.Show("An employee with this contact number already exists.");
+                return;
+            }
+            if (!IsValidContact(Employee.Contact))
+            {
+                MessageBox.Show("Invalid contact number. Please enter a 10-digit number.");
+                return;
+            }
             EmployeeModel newEmployee = new EmployeeModel
             {
                 Name = Employee.Name,
@@ -187,6 +245,15 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
 
             Reset();
             Application.Current.Windows.OfType<ModalEmployee>().FirstOrDefault()?.Close();
+        }
+        private bool IsValidEmail(string email)
+        {
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            return System.Text.RegularExpressions.Regex.IsMatch(email, pattern);
+        }
+        private bool IsValidContact(long? contact)
+        {
+            return contact.HasValue && contact.ToString().Length == 10;
         }
         private EmployeeModel FindEmployeeById(int empId)
         {
