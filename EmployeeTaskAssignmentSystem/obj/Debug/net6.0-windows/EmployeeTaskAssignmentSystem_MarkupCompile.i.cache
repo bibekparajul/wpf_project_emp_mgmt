@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\App.xaml
-22-1975934173
+261164697472
 
-41-757856320
+451572900329
 219-196924622
-MainWindow.xaml;ResourceDictionary\ButtonResourceDictionary.xaml;ResourceDictionary\LabelResourceDictionary.xaml;ResourceDictionary\LoginTextBoxResourceDictionary.xaml;ResourceDictionary\RichTextBoxResourceDictionary.xaml;ResourceDictionary\TextBoxResourceDictionary.xaml;Themes\Generic.xaml;View\EditAdminModalTask.xaml;View\EditModalEmployee.xaml;View\EditModalTask.xaml;View\EmployeeDashBoardLoginView.xaml;View\EmployeeHomePage.xaml;View\EmployeeMainWindowView.xaml;View\EmployeePageView.xaml;View\EmployeeTaskRetrievalPage.xaml;View\HomePageView.xaml;View\LandingWindowView.xaml;View\LoginView.xaml;View\ModalEmployee.xaml;View\ModalTask.xaml;View\TaskPageView.xaml;View\UCLandingPage.xaml;
+MainWindow.xaml;ResourceDictionary\ButtonResourceDictionary.xaml;ResourceDictionary\LabelResourceDictionary.xaml;ResourceDictionary\LoginTextBoxResourceDictionary.xaml;ResourceDictionary\RichTextBoxResourceDictionary.xaml;ResourceDictionary\TextBoxResourceDictionary.xaml;Themes\Generic.xaml;View\DoneEmployeeTaskPage.xaml;View\EditAdminModalTask.xaml;View\EditModalEmployee.xaml;View\EditModalTask.xaml;View\EmployeeDashBoardLoginView.xaml;View\EmployeeHomePage.xaml;View\EmployeeMainWindowView.xaml;View\EmployeePageView.xaml;View\EmployeeTaskRetrievalPage.xaml;View\HomePageView.xaml;View\InProgressEmployeeTaskPage.xaml;View\LandingWindowView.xaml;View\LoginView.xaml;View\ModalEmployee.xaml;View\ModalTask.xaml;View\NotStartedEmployeeTaskPage.xaml;View\PendingEmployeeTaskPage.xaml;View\TaskPageView.xaml;View\UCLandingPage.xaml;
 
-False
+True
 

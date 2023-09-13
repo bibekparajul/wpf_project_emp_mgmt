@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\DoneEmployeeTaskPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\EditAdminModalTask.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,6 +37,9 @@
     <Compile Update="View\HomePageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\InProgressEmployeeTaskPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -41,6 +47,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\ModalTask.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\NotStartedEmployeeTaskPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\PendingEmployeeTaskPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\TaskPageView.xaml.cs">
@@ -72,6 +84,9 @@
     <Page Update="Themes\Generic.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\DoneEmployeeTaskPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\EditAdminModalTask.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -99,6 +114,9 @@
     <Page Update="View\HomePageView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\InProgressEmployeeTaskPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\LandingWindowView.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -109,6 +127,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ModalTask.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\NotStartedEmployeeTaskPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\PendingEmployeeTaskPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\TaskPageView.xaml">

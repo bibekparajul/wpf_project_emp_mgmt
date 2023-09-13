@@ -29,8 +29,8 @@ namespace EmployeeTaskAssignmentSystem.Model
                     OnPropertyChanged(nameof(CreatedOn));
                 }
             }
-        }     
-        
+        }
+
         private DateTime? _updatedOn;
         public DateTime? UpdatedOn
         {

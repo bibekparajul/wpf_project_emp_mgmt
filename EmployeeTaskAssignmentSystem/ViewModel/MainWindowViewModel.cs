@@ -21,7 +21,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
 
         public ICommand HomeButtonCommand { get; }
         public ICommand EmployeeButtonCommand { get; }
-
         public ICommand TaskButtonCommand { get; }
         public ICommand LogoutCommand { get; }
 

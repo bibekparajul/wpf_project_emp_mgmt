@@ -61,6 +61,14 @@
                     Command="{Binding EmployeeViewTaskButtonCommand}"
                     Content="View Task"
                     Style="{StaticResource CustomButtonStyle}" />
+                <Button
+                    Command="{Binding NavigateToPendingTasksCommand}"
+                    Content="My pending Task"
+                    Style="{StaticResource CustomButtonStyle}" />
+                <Button
+                    Command="{Binding NavigateDoneTasksCommand}"
+                    Content="My done Task"
+                    Style="{StaticResource CustomButtonStyle}" />
 
                 <Button
                     Width="35"

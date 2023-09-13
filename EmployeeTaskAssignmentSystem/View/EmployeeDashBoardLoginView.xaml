@@ -83,6 +83,13 @@
             </StackPanel>
         </Border>
         <Image
+            Grid.Column="1"
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Right"
+            VerticalAlignment="top"
+            Source="\Images\Bajra.jpeg" />
+        <Image
             x:Name="imageControl"
             Grid.Column="1"
             Margin="50"

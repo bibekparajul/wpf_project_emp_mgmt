@@ -47,8 +47,6 @@
             HorizontalContentAlignment="Stretch"
             ItemsSource="{Binding FilteredTasks}"
             SelectedItem="{Binding SelectedTask}">
-
-
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Width="1000" Orientation="Horizontal" />
@@ -71,21 +69,31 @@
                                     FontWeight="Bold"
                                     Text="{Binding Title}" />
                                 <TextBlock
-                                    Margin="0,5,0,10"
+                                    Margin="5,5,0,10"
+                                    FontWeight="SemiBold"
                                     Text="{Binding Description}"
                                     TextWrapping="Wrap" />
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Status:" FontWeight="SemiBold" />
-                                    <TextBlock Margin="5,5,0,10" Text="{Binding Status}" />
+                                    <TextBlock
+                                        Margin="5,5,0,10"
+                                        FontWeight="SemiBold"
+                                        Text="{Binding Status}" />
                                 </StackPanel>
-                                <TextBlock Margin="0,5,0,10" Text="{Binding AssignedTo}" />
+                                <TextBlock Margin="5,5,0,10" Text="{Binding AssignedTo}" />
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Created On:" FontWeight="SemiBold" />
-                                    <TextBlock Margin="5,5,0,10" Text="{Binding CreatedOn}" />
+                                    <TextBlock
+                                        Margin="5,5,0,10"
+                                        FontWeight="SemiBold"
+                                        Text="{Binding CreatedOn}" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Updated On:" FontWeight="SemiBold" />
-                                    <TextBlock Margin="5,5,0,10" Text="{Binding UpdatedOn}" />
+                                    <TextBlock
+                                        Margin="5,5,0,10"
+                                        FontWeight="SemiBold"
+                                        Text="{Binding UpdatedOn}" />
                                 </StackPanel>
                                 <Button
                                     Padding="10,5"

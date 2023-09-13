@@ -135,6 +135,26 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             }
         }
 
+        private void OpenTaskEditModalCommand()
+        {
+            if (SelectedTask != null)
+            {
+                EditTaskViewModel = new EditTaskViewModel
+                {
+                    TaskToEdit = SelectedTask
+                };
+                var modal = new EditModalTask
+                {
+                    DataContext = EditTaskViewModel
+                };
+                modal.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a task to edit.", "Task Selection Required", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
         private int _empId;
         public int EmpId
         {
@@ -258,6 +278,12 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         }
         public ICommand RetrieveTaskCommand { get; }
         public ICommand LogoutCommand { get; }
+        public ICommand NavigateToPendingTasksCommand { get; }
+        public ICommand NavigateDoneTasksCommand { get; }
+        public ICommand NavigateInProgressTasksCommand { get; }
+        public ICommand NavigateNotStartedTasksCommand { get; }
+
+
         public EmployeeDashBoardLoginViewModel()
         {
             appDbContext = new AppDbContext();
@@ -269,6 +295,10 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             NavigateToLoginViewCommand = new RelayCommand(NavigateToLoginView);
             HomeButtonCommand = new RelayCommand(ShowHomeDashBoard);
             FilteredTasks = new ObservableCollection<TaskModel>();
+            NavigateToPendingTasksCommand = new RelayCommand(ShowPendingTasks);
+            NavigateDoneTasksCommand = new RelayCommand(ShowDoneTasks);
+            NavigateInProgressTasksCommand = new RelayCommand(ShowInProgressTasks);
+            NavigateNotStartedTasksCommand = new RelayCommand(ShowNotStartedTasks);
             EmployeeRetrieve();
         }
         #region comment
@@ -422,25 +452,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         //    }
         //}
         #endregion
-        private void OpenTaskEditModalCommand()
-        {
-            if (SelectedTask != null)
-            {
-                EditTaskViewModel = new EditTaskViewModel
-                {
-                    TaskToEdit = SelectedTask
-                };
-                var modal = new EditModalTask
-                {
-                    DataContext = EditTaskViewModel
-                };
-                modal.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Please select a task to edit.", "Task Selection Required", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-        }
+
         private EditTaskViewModel _editTaskViewModel;
         public EditTaskViewModel EditTaskViewModel
         {
@@ -545,19 +557,16 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
 
         private void RetrieveTask()
         {
-            // Check if EmpId is valid
             if (EmpId <= 0)
             {
                 MessageBox.Show("Please enter a valid task ID.", "Invalid task ID", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-
             if (string.IsNullOrWhiteSpace(UserEmail))
             {
                 MessageBox.Show("Please enter a valid email address.", "Invalid Email", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-
             var employee = Employees.FirstOrDefault(e => e.Email == UserEmail);
             if (employee != null)
             {
@@ -570,7 +579,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             }
 
             var userTasks = Tasks.Where(t => t.AssignedTo == UserEmail && t.Id == EmpId).ToList();
-
             PendingTasks = userTasks.Count(t => t.Status == TaskStatus.Pending);
             DoneTasks = userTasks.Count(t => t.Status == TaskStatus.Done);
             NotStartedTasks = userTasks.Count(t => t.Status == TaskStatus.NotStarted);
@@ -621,6 +629,39 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         {
             EmployeeRetrieve();
         }
+        private void ShowPendingTasks()
+        {
+            var pendingTasks = Tasks.Where(task => task.Status == TaskStatus.Pending && task.AssignedTo == UserEmail).ToList();
+            FilteredTasks = new ObservableCollection<TaskModel>(pendingTasks);
+            PendingEmployeeTaskPage pendingEmployeeTaskRetrievalPage = new PendingEmployeeTaskPage();
+            pendingEmployeeTaskRetrievalPage.DataContext = this;
+            CurrentPage = pendingEmployeeTaskRetrievalPage;
+        }       
+        private void ShowDoneTasks()
+        {
+            var donwTasks = Tasks.Where(task => task.Status == TaskStatus.Done && task.AssignedTo == UserEmail).ToList();
+            FilteredTasks = new ObservableCollection<TaskModel>(donwTasks);
+            DoneEmployeeTaskPage doneEmployeeTaskRetrievalPage = new DoneEmployeeTaskPage();
+            doneEmployeeTaskRetrievalPage.DataContext = this;
+            CurrentPage = doneEmployeeTaskRetrievalPage;
+        }    
+        private void ShowInProgressTasks()
+        {
+            var donwTasks = Tasks.Where(task => task.Status == TaskStatus.InProgress && task.AssignedTo == UserEmail).ToList();
+            FilteredTasks = new ObservableCollection<TaskModel>(donwTasks);
+            InProgressEmployeeTaskPage inProgressEmployeeTaskRetrievalPage = new InProgressEmployeeTaskPage();
+            inProgressEmployeeTaskRetrievalPage.DataContext = this;
+            CurrentPage = inProgressEmployeeTaskRetrievalPage;
+        }      
+        private void ShowNotStartedTasks()
+        {
+            var donwTasks = Tasks.Where(task => task.Status == TaskStatus.NotStarted && task.AssignedTo == UserEmail).ToList();
+            FilteredTasks = new ObservableCollection<TaskModel>(donwTasks);
+            NotStartedEmployeeTaskPage notStartedEmployeeTaskRetrievalPage = new NotStartedEmployeeTaskPage();
+            notStartedEmployeeTaskRetrievalPage.DataContext = this;
+            CurrentPage = notStartedEmployeeTaskRetrievalPage;
+        }
+        
     }
 }
 

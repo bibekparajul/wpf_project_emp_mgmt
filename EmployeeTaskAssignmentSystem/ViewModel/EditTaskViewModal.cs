@@ -50,14 +50,12 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 return Enum.GetNames(typeof(Model.TaskStatus)).ToList();
             }
         }
-
         public ICommand UpdateButton { get; }
         public EditTaskViewModel()
         {
             appDbContext = new AppDbContext();
             UpdateButton = new RelayCommand(UpdateTaskEmployee);
         }
-
         private void UpdateTaskEmployee()
         {
             TaskModel taskModel = new TaskModel();

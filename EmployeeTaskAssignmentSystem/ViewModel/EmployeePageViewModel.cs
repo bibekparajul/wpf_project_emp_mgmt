@@ -5,7 +5,6 @@ using EmployeeTaskAssignmentSystem.View;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -232,7 +231,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
 
         private void CreateEmployee()
         {
-            if (string.IsNullOrWhiteSpace(Employee.Name) || string.IsNullOrWhiteSpace(Employee.Address) 
+            if (string.IsNullOrWhiteSpace(Employee.Name) || string.IsNullOrWhiteSpace(Employee.Address)
                 || string.IsNullOrWhiteSpace(Employee.Email))
             {
                 MessageBox.Show("Please all field properly");

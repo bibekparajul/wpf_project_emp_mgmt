@@ -1,19 +1,17 @@
 ﻿using EmployeeTaskAssignmentSystem.Command;
 using EmployeeTaskAssignmentSystem.Data;
 using EmployeeTaskAssignmentSystem.Model;
+using EmployeeTaskAssignmentSystem.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using System.Windows;
+using System.Windows.Input;
 using TaskStatus = EmployeeTaskAssignmentSystem.Model.TaskStatus;
-using EmployeeTaskAssignmentSystem.View;
 
 namespace EmployeeTaskAssignmentSystem.ViewModel
 {
-    public class EditAdminTaskViewModel: ViewModelBase
+    public class EditAdminTaskViewModel : ViewModelBase
     {
         private TaskModel _task;
         private AppDbContext _appDbContext;

@@ -1,6 +1,4 @@
-﻿using EmployeeTaskAssignmentSystem.Model;
-using EmployeeTaskAssignmentSystem.Utility;
-using System.Windows;
+﻿using System.Windows;
 
 namespace EmployeeTaskAssignmentSystem.View
 {

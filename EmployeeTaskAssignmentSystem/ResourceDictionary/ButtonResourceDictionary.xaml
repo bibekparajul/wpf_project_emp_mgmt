@@ -26,4 +26,12 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <Style x:Key="NoHoverButtonStyle" TargetType="Button">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Foreground" Value="Transparent" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

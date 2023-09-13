@@ -24,142 +24,166 @@
         </Grid.RowDefinitions>
 
         <WrapPanel Margin="10,10,0,5">
-            <Border
-                Width="200"
-                Margin="10"
-                BorderBrush="Gray"
-                BorderThickness="1"
-                CornerRadius="5">
-                <StackPanel Margin="10" Orientation="Vertical">
-                    <fa:ImageAwesome
-                        Name="Task"
-                        Width="80"
-                        Height="80"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Icon="Tasks" />
-                    <TextBlock
-                        HorizontalAlignment="Center"
-                        FontFamily="Roboto"
-                        FontSize="20"
-                        FontWeight="SemiBold"
-                        Text="Total Tasks" />
-                    <TextBlock
-                        HorizontalAlignment="Center"
-                        FontSize="24"
-                        FontWeight="Bold"
-                        Text="{Binding TotalTasks}" />
-                </StackPanel>
-            </Border>
-            <Border
-                Width="200"
-                Margin="10"
-                BorderBrush="Gray"
-                BorderThickness="1"
-                CornerRadius="5">
-                <StackPanel Margin="10" Orientation="Vertical">
-                    <fa:ImageAwesome
-                        Width="80"
-                        Height="80"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Icon="CircleOutlineNotch"
-                        Spin="True" />
-                    <TextBlock
-                        HorizontalAlignment="Center"
-                        FontFamily="Roboto"
-                        FontSize="20"
-                        FontWeight="SemiBold"
-                        Text="Pending Task" />
-                    <TextBlock
-                        HorizontalAlignment="Center"
-                        FontSize="24"
-                        FontWeight="Bold"
-                        Text="{Binding PendingTasks, Mode=OneWay}" />
-                </StackPanel>
-            </Border>
-            <Border
-                Width="200"
-                Margin="10"
-                BorderBrush="Gray"
-                BorderThickness="1"
-                CornerRadius="5">
-                <StackPanel Margin="10" Orientation="Vertical">
-                    <fa:ImageAwesome
-                        Name="TaskCompleted"
-                        Width="80"
-                        Height="80"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Icon="Check" />
-                    <TextBlock
-                        HorizontalAlignment="Center"
-                        FontFamily="Roboto"
-                        FontSize="20"
-                        FontWeight="SemiBold"
-                        Text="Task Completed" />
-                    <TextBlock
-                        HorizontalAlignment="Center"
-                        FontSize="24"
-                        FontWeight="Bold"
-                        Text="{Binding DoneTasks, Mode=OneWay}" />
-                </StackPanel>
-            </Border>
-
-            <Border
-                Width="200"
-                Margin="10"
-                BorderBrush="Gray"
-                BorderThickness="1"
-                CornerRadius="5">
-                <StackPanel Margin="10" Orientation="Vertical">
-                    <fa:ImageAwesome
-                        Name="TaskInprogress"
-                        Width="80"
-                        Height="80"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Icon="Spinner" />
-                    <TextBlock
-                        HorizontalAlignment="Center"
-                        FontFamily="Roboto"
-                        FontSize="20"
-                        FontWeight="SemiBold"
-                        Text="Task Inprogress" />
-                    <Label
-                        HorizontalAlignment="Center"
-                        Content="{Binding InProgressTasks}"
-                        FontSize="24"
-                        FontWeight="Bold" />
-                </StackPanel>
-            </Border>
-            <Border
-                Width="200"
-                Margin="10"
-                BorderBrush="Gray"
-                BorderThickness="1"
-                CornerRadius="5">
-                <StackPanel Margin="10" Orientation="Vertical">
-                    <fa:ImageAwesome
-                        Name="TaskNotStarted"
-                        Width="80"
-                        Height="80"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Icon="Spinner" />
-                    <TextBlock
-                        HorizontalAlignment="Center"
-                        FontFamily="Roboto"
-                        FontSize="20"
-                        FontWeight="SemiBold"
-                        Text="Task Not Started" />
-                    <Label
-                        HorizontalAlignment="Center"
-                        Content="{Binding NotStartedTasks}"
-                        FontSize="24"
-                        FontWeight="Bold" />
-                </StackPanel>
-            </Border>
+            <Button
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Command="{Binding HomeButtonCommand}">
+                <Border
+                    Width="200"
+                    Margin="10"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    CornerRadius="5">
+                    <StackPanel Margin="10" Orientation="Vertical">
+                        <fa:ImageAwesome
+                            Name="Task"
+                            Width="80"
+                            Height="80"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Icon="Tasks" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            FontFamily="Roboto"
+                            FontSize="20"
+                            FontWeight="SemiBold"
+                            Text="Total Tasks" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            FontSize="24"
+                            FontWeight="Bold"
+                            Text="{Binding TotalTasks}" />
+                    </StackPanel>
+                </Border>
+            </Button>
+            <Button
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Command="{Binding NavigateToPendingTasksCommand}">
+                <Border
+                    Width="200"
+                    Margin="10"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    CornerRadius="5">
+                    <StackPanel Margin="10" Orientation="Vertical">
+                        <fa:ImageAwesome
+                            Width="80"
+                            Height="80"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Icon="CircleOutlineNotch"
+                            Spin="True" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            FontFamily="Roboto"
+                            FontSize="20"
+                            FontWeight="SemiBold"
+                            Text="Pending Task" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            FontSize="24"
+                            FontWeight="Bold"
+                            Text="{Binding PendingTasks, Mode=OneWay}" />
+                    </StackPanel>
+                </Border>
+            </Button>
+            <Button
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Command="{Binding NavigateDoneTasksCommand}">
+                <Border
+                    Width="200"
+                    Margin="10"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    CornerRadius="5">
+                    <StackPanel Margin="10" Orientation="Vertical">
+                        <fa:ImageAwesome
+                            Name="TaskCompleted"
+                            Width="80"
+                            Height="80"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Icon="Check" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            FontFamily="Roboto"
+                            FontSize="20"
+                            FontWeight="SemiBold"
+                            Text="Task Completed" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            FontSize="24"
+                            FontWeight="Bold"
+                            Text="{Binding DoneTasks, Mode=OneWay}" />
+                    </StackPanel>
+                </Border>
+            </Button>
+            <Button
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Command="{Binding NavigateInProgressTasksCommand}">
+                <Border
+                    Width="200"
+                    Margin="10"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    CornerRadius="5">
+                    <StackPanel Margin="10" Orientation="Vertical">
+                        <fa:ImageAwesome
+                            Name="TaskInprogress"
+                            Width="80"
+                            Height="80"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Icon="Spinner" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            FontFamily="Roboto"
+                            FontSize="20"
+                            FontWeight="SemiBold"
+                            Text="Task Inprogress" />
+                        <Label
+                            HorizontalAlignment="Center"
+                            Content="{Binding InProgressTasks}"
+                            FontSize="24"
+                            FontWeight="Bold" />
+                    </StackPanel>
+                </Border>
+            </Button>
+            <Button
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Command="{Binding NavigateNotStartedTasksCommand}">
+                <Border
+                    Width="200"
+                    Margin="10"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    CornerRadius="5">
+                    <StackPanel Margin="10" Orientation="Vertical">
+                        <fa:ImageAwesome
+                            Name="TaskNotStarted"
+                            Width="80"
+                            Height="80"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Icon="Spinner" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            FontFamily="Roboto"
+                            FontSize="20"
+                            FontWeight="SemiBold"
+                            Text="Task Not Started" />
+                        <Label
+                            HorizontalAlignment="Center"
+                            Content="{Binding NotStartedTasks}"
+                            FontSize="24"
+                            FontWeight="Bold" />
+                    </StackPanel>
+                </Border>
+            </Button>
         </WrapPanel>
         <syncfusion:SfChart Grid.Row="2">
             <syncfusion:SfChart.PrimaryAxis>
