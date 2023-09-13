@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:EmployeeTaskAssignmentSystem.View"
     xmlns:local1="clr-namespace:EmployeeTaskAssignmentSystem.ViewModel"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Employee Login"
     Width="800"
     Height="450"
     MinWidth="800"
@@ -18,21 +19,6 @@
     <Window.DataContext>
         <local1:EmployeeDashBoardLoginViewModel />
     </Window.DataContext>
-    <Window.Resources>
-        <!--  PasswordBox style  -->
-        <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox">
-            <Setter Property="Height" Value="28" />
-            <Setter Property="Margin" Value="0,5,0,0" />
-            <Setter Property="Padding" Value="10,0,0,0" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="BorderThickness" Value="0,0,0,0" />
-            <Setter Property="FontFamily" Value="Roboto" />
-            <Setter Property="FontSize" Value="15" />
-            <Setter Property="FontWeight" Value="Medium" />
-            <Setter Property="Foreground" Value="black" />
-        </Style>
-
-    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -101,7 +87,7 @@
             Grid.Column="1"
             Margin="50"
             VerticalAlignment="Center"
-            Source="E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\Images\ll.png" />
+            Source="\Images\ll.png" />
 
     </Grid>
 </Window>

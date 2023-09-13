@@ -74,15 +74,18 @@
                                     Margin="0,5,0,10"
                                     Text="{Binding Description}"
                                     TextWrapping="Wrap" />
-                                <TextBlock Margin="0,5,0,10" Text="{Binding Status}" />
-                                <TextBlock Margin="0,5,0,10" Text="{Binding AssignedTo}" />
-                                <StackPanel>
-                                    <Label Content="Created On" />
-                                    <TextBlock Margin="0,5,0,10" Text="{Binding CreatedOn}" />
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Status:" FontWeight="SemiBold" />
+                                    <TextBlock Margin="5,5,0,10" Text="{Binding Status}" />
                                 </StackPanel>
-                                <StackPanel>
-                                    <Label Content="Updated On" />
-                                    <TextBlock Margin="0,5,0,10" Text="{Binding UpdatedOn}" />
+                                <TextBlock Margin="0,5,0,10" Text="{Binding AssignedTo}" />
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Created On:" FontWeight="SemiBold" />
+                                    <TextBlock Margin="5,5,0,10" Text="{Binding CreatedOn}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Updated On:" FontWeight="SemiBold" />
+                                    <TextBlock Margin="5,5,0,10" Text="{Binding UpdatedOn}" />
                                 </StackPanel>
                                 <Button
                                     Padding="10,5"

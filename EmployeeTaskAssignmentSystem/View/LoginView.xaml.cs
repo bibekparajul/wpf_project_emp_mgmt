@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using EmployeeTaskAssignmentSystem.ViewModel;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace EmployeeTaskAssignmentSystem.View
 {
@@ -11,5 +14,6 @@ namespace EmployeeTaskAssignmentSystem.View
         {
             InitializeComponent();
         }
+
     }
 }

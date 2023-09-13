@@ -92,3 +92,4 @@ E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\ref\EmployeeTaskAssignmentSystem.dll
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EditAdminModalTask.g.cs
 E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\View\EditAdminModalTask.baml
+E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\obj\Debug\net6.0-windows\Themes\Generic.baml

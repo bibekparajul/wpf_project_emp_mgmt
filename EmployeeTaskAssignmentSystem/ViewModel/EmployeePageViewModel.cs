@@ -5,6 +5,7 @@ using EmployeeTaskAssignmentSystem.View;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -61,6 +62,32 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         public ICommand CreateButton { get; }
         public ICommand UpdateButton { get; }
         public ICommand DeleteButton { get; }
+        public ObservableCollection<TaskModel> _Tasks;
+        public ObservableCollection<TaskModel> Tasks
+        {
+            get => _Tasks;
+            set
+            {
+                if (_Tasks != value)
+                {
+                    _Tasks = value;
+                    OnPropertyChanged(nameof(Tasks));
+                }
+            }
+        }
+        private ObservableCollection<TaskModel> _filteredTasks;
+        public ObservableCollection<TaskModel> FilteredTasks
+        {
+            get => _filteredTasks;
+            set
+            {
+                if (_filteredTasks != value)
+                {
+                    _filteredTasks = value;
+                    OnPropertyChanged(nameof(FilteredTasks));
+                }
+            }
+        }
         private string _searchText;
         public string SearchText
         {
@@ -148,6 +175,8 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             Employee = new EmployeeModel();
             appDbContext = new AppDbContext();
             Employees = new ObservableCollection<EmployeeModel>(appDbContext.Employees);
+            Tasks = new ObservableCollection<TaskModel>(appDbContext.Tasks);
+            FilteredTasks = new ObservableCollection<TaskModel>(Tasks);
             CreateButton = new RelayCommand(CreateEmployee);
             //UpdateButton = new RelayCommand(UpdateEmployee);
             DeleteButton = new RelayCommand(DeleteEmployee);
@@ -265,6 +294,8 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         {
             return Employees.FirstOrDefault<EmployeeModel>(x => x.Id == empId);
         }
+
+        #region Commented Update
         //private void UpdateEmployee()
         //{
         //    if (Employee != null && Employee.Id != 0) // Check if Employee is not null and has a valid Id
@@ -294,9 +325,47 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         //        MessageBox.Show("Select an employee to update.");
         //    }
         //}
+        #endregion
+
+        #region Commented Delete
+        //private void DeleteEmployee()
+        //{
+        //    if (Employee != null && Employee.Id != 0) // Check if Employee is not null and has a valid Id
+        //    {
+        //        EmployeeModel employeeModel = FindEmployeeById(Employee.Id);
+        //        if (employeeModel != null)
+        //        {
+        //            // Ask for confirmation
+        //            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this employee?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+        //            if (result == MessageBoxResult.Yes)
+        //            {
+        //                // Delete the selected employee
+        //                appDbContext.Employees.Remove(employeeModel);
+        //                appDbContext.SaveChanges();
+        //                Employees.Remove(employeeModel);
+        //                FilteredEmployees.Remove(employeeModel);
+
+        //                // Notify user
+        //                MessageBox.Show("Employee Deleted Successfully");
+        //                Reset();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Employee not found");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Select an employee to delete.");
+        //    }
+        //}
+
+        #endregion 
         private void DeleteEmployee()
         {
-            if (Employee != null && Employee.Id != 0) // Check if Employee is not null and has a valid Id
+            if (Employee != null && Employee.Id != 0)
             {
                 EmployeeModel employeeModel = FindEmployeeById(Employee.Id);
                 if (employeeModel != null)
@@ -306,14 +375,28 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
 
                     if (result == MessageBoxResult.Yes)
                     {
-                        // Delete the selected employee
+                        // Remove tasks associated with the employee
+                        var tasksToRemove = appDbContext.Tasks.Where(task => task.AssignedTo == employeeModel.Email).ToList();
+                        appDbContext.Tasks.RemoveRange(tasksToRemove);
+
+                        // Remove the selected employee
                         appDbContext.Employees.Remove(employeeModel);
                         appDbContext.SaveChanges();
+
+                        // Update the Employees collection
                         Employees.Remove(employeeModel);
+
+                        // Update the FilteredEmployees collection
                         FilteredEmployees.Remove(employeeModel);
 
-                        // Notify user
-                        MessageBox.Show("Employee Deleted Successfully");
+                        // Update the Tasks collection
+                        foreach (var task in tasksToRemove)
+                        {
+                            Tasks.Remove(task);
+                            FilteredTasks.Remove(task);
+                        }
+
+                        MessageBox.Show("Employee and associated tasks deleted successfully.");
                         Reset();
                     }
                 }
@@ -345,116 +428,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 MessageBox.Show("Select an employee to edit.");
             }
         }
-
-        #region EditCode
-
-        //private void EditEmployee()
-        //{
-        //    if (SelectedEmployee != null)
-        //    {
-        //        // Create a copy of the selected employee to avoid modifying it directly
-        //        EmployeeModel editEmployee = new EmployeeModel
-        //        {
-        //            Id = SelectedEmployee.Id,
-        //            Name = SelectedEmployee.Name,
-        //            Email = SelectedEmployee.Email,
-        //            Address = SelectedEmployee.Address,
-        //            Contact = SelectedEmployee.Contact
-        //        };
-
-        //        // Open the modal with the selected employee data for editing
-        //        ModalEmployee modalView = new ModalEmployee();
-        //        modalView.DataContext = editEmployee; // Set the DataContext here
-        //        modalView.ShowDialog();
-
-        //        // If the modal was closed and changes were saved, update the employee data
-        //        if (modalView.DialogResult.HasValue && modalView.DialogResult.Value)
-        //        {
-        //            SelectedEmployee.Name = editEmployee.Name;
-        //            SelectedEmployee.Email = editEmployee.Email;
-        //            SelectedEmployee.Address = editEmployee.Address;
-        //            SelectedEmployee.Contact = editEmployee.Contact;
-        //            appDbContext.SaveChanges();
-        //            Reset();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Employee Id not found");
-        //    }
-        //}
-
-        //private void EditEmployee()
-        //{
-        //    if (SelectedEmployee != null)
-        //    {
-        //        // Create a copy of the selected employee to avoid modifying it directly
-        //        EmployeeModel editEmployee = new EmployeeModel
-        //        {
-        //            Id = SelectedEmployee.Id,
-        //            Name = SelectedEmployee.Name,
-        //            Email = SelectedEmployee.Email,
-        //            Address = SelectedEmployee.Address,
-        //            Contact = SelectedEmployee.Contact
-        //        };
-
-        //        // Open the modal with the selected employee data for editing
-        //        ModalEmployee modalView = new ModalEmployee();
-        //        modalView.DataContext = editEmployee; // Set the DataContext here
-        //        modalView.ShowDialog();
-
-        //        // If the modal was closed and changes were saved, update the employee data
-        //        if (modalView.DialogResult.HasValue && modalView.DialogResult.Value)
-        //        {
-        //            // Find the employee in the ObservableCollection by Id
-        //            EmployeeModel employeeToUpdate = FindEmployeeById(editEmployee.Id);
-
-        //            if (employeeToUpdate != null)
-        //            {
-        //                employeeToUpdate.Name = editEmployee.Name;
-        //                employeeToUpdate.Email = editEmployee.Email;
-        //                employeeToUpdate.Address = editEmployee.Address;
-        //                employeeToUpdate.Contact = editEmployee.Contact;
-
-        //                // Save changes to the database
-        //                appDbContext.SaveChanges();
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Employee Id not found");
-        //    }
-        //}
-
-        //private void DeleteEmployee()
-        //{
-        //    // Check if a task is selected
-        //    if (SelectedEmployee != null)
-        //    {
-        //        // Ask for confirmation
-        //        MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this task?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-        //        if (result == MessageBoxResult.Yes)
-        //        {
-        //            // Delete the selected task
-        //            appDbContext.Employees.Remove(SelectedEmployee);
-        //            appDbContext.SaveChanges();
-        //            Employees.Remove(SelectedEmployee);
-
-        //            // Notify user
-        //            MessageBox.Show("Employee Deleted Successfully");
-        //            SelectedEmployee = null;
-
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Select a task to delete.");
-        //    }
-        //}
-        #endregion
-
         public void Reset()
         {
             Employee.Email = string.Empty;
