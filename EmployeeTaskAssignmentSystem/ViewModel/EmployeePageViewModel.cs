@@ -203,6 +203,12 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
 
         private void CreateEmployee()
         {
+            if (string.IsNullOrWhiteSpace(Employee.Name) || string.IsNullOrWhiteSpace(Employee.Address) 
+                || string.IsNullOrWhiteSpace(Employee.Email))
+            {
+                MessageBox.Show("Please all field properly");
+                return;
+            }
             if (string.IsNullOrWhiteSpace(Employee.Email))
             {
                 MessageBox.Show("Please enter an email address.");

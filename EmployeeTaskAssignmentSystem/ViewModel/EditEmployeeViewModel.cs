@@ -173,6 +173,11 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             {
                 if (Employee != null && Employee.Id != 0)
                 {
+                    if (string.IsNullOrWhiteSpace(Employee.Name) || string.IsNullOrWhiteSpace(Employee.Address))
+                    {
+                        MessageBox.Show("Please fill all fields properly");
+                        return;
+                    }
                     // Check if the contact number is valid
                     if (!IsValidContact(Employee.Contact))
                     {
@@ -239,7 +244,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 Console.WriteLine("Employee object state: " + _appDbContext.Entry(Employee).State);
             }
         }
-
         private bool IsValidContact(long? contact)
         {
             return contact.HasValue && contact.ToString().Length == 10;

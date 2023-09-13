@@ -5,9 +5,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:EmployeeTaskAssignmentSystem.ViewModel"
-    Title="EditModalTask"
+    Title="Edit Task"
     Width="400"
     Height="400"
+    Icon="/Images/Bajra.jpeg"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -126,11 +127,12 @@
                 HorizontalAlignment="Center"
                 Orientation="Horizontal">
                 <Button
-                    Width="80"
-                    Height="30"
+                    Width="100"
+                    Height="40"
                     Margin="10,0"
                     Command="{Binding UpdateButton}"
-                    Content="Update" />
+                    Content="Update"
+                    Style="{StaticResource CustomButtonStyle}" />
             </StackPanel>
         </Grid>
     </Grid>

@@ -5,9 +5,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local1="clr-namespace:EmployeeTaskAssignmentSystem.ViewModel"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="ModalTask"
+    Title="Add Task"
     Width="400"
     Height="400"
+    Icon="/Images/Bajra.jpeg"
+    ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 

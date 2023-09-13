@@ -9,6 +9,7 @@
     Title="Edit Employee"
     Width="400"
     Height="300"
+    Icon="/Images/Bajra.jpeg"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">

@@ -122,7 +122,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         public ICommand HomeButtonCommand { get; }
         public ICommand EmployeeViewTaskButtonCommand { get; }
 
-
         private ICommand _openEditModalCommand;
         public ICommand OpenEditModalCommand
         {
@@ -219,6 +218,14 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 }
             }
         }
+        public ICommand NavigateToLoginViewCommand { get; }
+        private void NavigateToLoginView()
+        {
+            var loginView = new LoginView();
+
+            loginView.Show();
+            Application.Current.Windows.OfType<EmployeeDashBoardLoginView>().FirstOrDefault()?.Close();
+        }
         private string searchKeyword;
         public string SearchKeyword
         {
@@ -251,7 +258,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         }
         public ICommand RetrieveTaskCommand { get; }
         public ICommand LogoutCommand { get; }
-
         public EmployeeDashBoardLoginViewModel()
         {
             appDbContext = new AppDbContext();
@@ -260,6 +266,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             RetrieveTaskCommand = new RelayCommand(RetrieveTask);
             LogoutCommand = new RelayCommand(Logout);
             EmployeeViewTaskButtonCommand = new RelayCommand(ShowEmployeeTaskPage);
+            NavigateToLoginViewCommand = new RelayCommand(NavigateToLoginView);
             HomeButtonCommand = new RelayCommand(ShowHomeDashBoard);
             FilteredTasks = new ObservableCollection<TaskModel>();
             EmployeeRetrieve();
@@ -461,7 +468,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 }
             }
         }
-
         public List<ChartItem> ChartData { get; private set; }
         public void EmployeeRetrieve()
         {
@@ -494,57 +500,9 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 CurrentPage = employeeHomePage;
             }
         }
-        private void RetrieveTask()
-        {
-            // Check if UserEmail is valid (e.g., not empty)
-            if (string.IsNullOrWhiteSpace(UserEmail))
-            {
-                MessageBox.Show("Please enter a valid email address.", "Invalid Email", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            // Check if UserEmail exists in Employees
-            var employee = Employees.FirstOrDefault(e => e.Email == UserEmail);
-            if (employee != null)
-            {
-                EmployeeName = $"Welcome {employee.Name}";
-            }
-
-            if (employee == null)
-            {
-                MessageBox.Show("The entered email does not exist.", "Email Not Found", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            // Filter tasks based on UserEmail
-            var userTasks = Tasks.Where(t => t.AssignedTo == UserEmail).ToList();
-
-            if (userTasks.Count > 0)
-            {
-                FilteredTasks = new ObservableCollection<TaskModel>(userTasks);
-                var employeeHomePage = new EmployeeMainWindowView();
-                employeeHomePage.DataContext = this;
-                EmployeeRetrieve();
-                employeeHomePage.Show();
-                Application.Current.Windows.OfType<EmployeeDashBoardLoginView>().FirstOrDefault()?.Close();
-
-            }
-            else
-            {
-                FilteredTasks.Clear();
-                MessageBox.Show("No task is assigned to you till date.", "No Tasks", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-        }
 
         //private void RetrieveTask()
         //{
-        //    // Check if EmpId is valid
-        //    if (EmpId <= 0)
-        //    {
-        //        MessageBox.Show("Please enter a valid Employee ID.", "Invalid Employee ID", MessageBoxButton.OK, MessageBoxImage.Warning);
-        //        return;
-        //    }
-
         //    // Check if UserEmail is valid (e.g., not empty)
         //    if (string.IsNullOrWhiteSpace(UserEmail))
         //    {
@@ -552,26 +510,21 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         //        return;
         //    }
 
-        //    // Check if EmpId and UserEmail exist in Employees
-        //    var employee = Employees.FirstOrDefault(e => e.Id == EmpId && e.Email == UserEmail);
+        //    // Check if UserEmail exists in Employees
+        //    var employee = Employees.FirstOrDefault(e => e.Email == UserEmail);
         //    if (employee != null)
         //    {
         //        EmployeeName = $"Welcome {employee.Name}";
         //    }
+
         //    if (employee == null)
         //    {
-        //        MessageBox.Show("The entered Employee ID and/or email do not match our records.", "Employee Not Found", MessageBoxButton.OK, MessageBoxImage.Warning);
+        //        MessageBox.Show("The entered email does not exist.", "Email Not Found", MessageBoxButton.OK, MessageBoxImage.Warning);
         //        return;
         //    }
 
-        //    // Filter tasks based on EmpId and UserEmail
-        //    var userTasks = Tasks.Where(t => t.AssignedTo == UserEmail && t.Id == EmpId).ToList();
-
-        //    // Calculate the task counts for the filtered tasks
-        //    PendingTasks = userTasks.Count(t => t.Status == TaskStatus.Pending);
-        //    DoneTasks = userTasks.Count(t => t.Status == TaskStatus.Done);
-        //    NotStartedTasks = userTasks.Count(t => t.Status == TaskStatus.NotStarted);
-        //    InProgressTasks = userTasks.Count(t => t.Status == TaskStatus.InProgress);
+        //    // Filter tasks based on UserEmail
+        //    var userTasks = Tasks.Where(t => t.AssignedTo == UserEmail).ToList();
 
         //    if (userTasks.Count > 0)
         //    {
@@ -581,14 +534,63 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         //        EmployeeRetrieve();
         //        employeeHomePage.Show();
         //        Application.Current.Windows.OfType<EmployeeDashBoardLoginView>().FirstOrDefault()?.Close();
+
         //    }
         //    else
         //    {
         //        FilteredTasks.Clear();
-        //        MessageBox.Show("No task is assigned to you with the provided Employee ID and email.", "No Tasks", MessageBoxButton.OK, MessageBoxImage.Information);
+        //        MessageBox.Show("No task is assigned to you till date.", "No Tasks", MessageBoxButton.OK, MessageBoxImage.Information);
         //    }
         //}
 
+        private void RetrieveTask()
+        {
+            // Check if EmpId is valid
+            if (EmpId <= 0)
+            {
+                MessageBox.Show("Please enter a valid task ID.", "Invalid task ID", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(UserEmail))
+            {
+                MessageBox.Show("Please enter a valid email address.", "Invalid Email", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            var employee = Employees.FirstOrDefault(e => e.Email == UserEmail);
+            if (employee != null)
+            {
+                EmployeeName = $"Welcome {employee.Name}";
+            }
+            if (employee == null)
+            {
+                MessageBox.Show("The entered task ID and/or email do not match our records.", "Task Not Found", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            var userTasks = Tasks.Where(t => t.AssignedTo == UserEmail && t.Id == EmpId).ToList();
+
+            PendingTasks = userTasks.Count(t => t.Status == TaskStatus.Pending);
+            DoneTasks = userTasks.Count(t => t.Status == TaskStatus.Done);
+            NotStartedTasks = userTasks.Count(t => t.Status == TaskStatus.NotStarted);
+            InProgressTasks = userTasks.Count(t => t.Status == TaskStatus.InProgress);
+
+            if (userTasks.Count > 0)
+            {
+                FilteredTasks = new ObservableCollection<TaskModel>(userTasks);
+                var employeeHomePage = new EmployeeMainWindowView();
+                employeeHomePage.DataContext = this;
+                EmployeeRetrieve();
+                employeeHomePage.Show();
+                Application.Current.Windows.OfType<EmployeeDashBoardLoginView>().FirstOrDefault()?.Close();
+            }
+            else
+            {
+                FilteredTasks.Clear();
+                MessageBox.Show("No task is assigned to you with the provided task ID and email.", "No Tasks", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
         private void ShowEmployeeTaskPage()
         {
             var filteredTasks = Tasks.Where(t => t.AssignedTo == UserEmail).ToList();
@@ -615,12 +617,10 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 Application.Current.Windows.OfType<EmployeeMainWindowView>().FirstOrDefault()?.Close();
             }
         }
-
         private void ShowHomeDashBoard()
         {
             EmployeeRetrieve();
         }
-
     }
 }
 

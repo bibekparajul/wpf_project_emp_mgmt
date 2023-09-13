@@ -6,9 +6,10 @@
     xmlns:local="clr-namespace:EmployeeTaskAssignmentSystem.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:EmployeeTaskAssignmentSystem.ViewModel"
-    Title="EditAdminModalTask"
+    Title="Edit Task"
     Width="400"
     Height="400"
+    Icon="/Images/Bajra.jpeg"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.DataContext>
