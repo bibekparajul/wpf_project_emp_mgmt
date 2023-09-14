@@ -101,6 +101,7 @@
                     BorderBrush="Snow"
                     Command="{Binding NavigateToEmployeeDashboardCommand}"
                     Content="Click here to Proceed As Employee"
+                    FontFamily="Roboto"
                     FontSize="14"
                     FontWeight="SemiBold"
                     Foreground="Blue" />

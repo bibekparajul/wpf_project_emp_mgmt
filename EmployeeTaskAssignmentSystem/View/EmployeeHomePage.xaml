@@ -191,7 +191,7 @@
             </syncfusion:SfChart.PrimaryAxis>
 
             <syncfusion:SfChart.SecondaryAxis>
-                <syncfusion:NumericalAxis Header="Task Count" />
+                <syncfusion:NumericalAxis Header="Task Count" Interval="2" />
             </syncfusion:SfChart.SecondaryAxis>
 
             <syncfusion:BarSeries

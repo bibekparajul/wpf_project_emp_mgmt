@@ -36,6 +36,11 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         }
         private void GrantAccess()
         {
+            if (string.IsNullOrWhiteSpace(User.Email) || string.IsNullOrWhiteSpace(User.Password))
+            {
+                MessageBox.Show("Please enter both email and password.","Error Login");
+                return; 
+            }
             bool userFound = appDbContext.Users.Any(user => user.Email == User.Email && user.Password == User.Password);
             if (userFound)
             {

@@ -499,7 +499,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 new ChartItem("In Progress Tasks", InProgressTasks),
                 new ChartItem("Done Tasks", DoneTasks),
                 new ChartItem("Not Started Tasks", NotStartedTasks),
-                // Add more data items as needed
             };
 
 
