@@ -13,15 +13,15 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         public AppDbContext appDbContext { get; set; }
         public ICommand LoginButtonCommand { get; set; }
         public ICommand NavigateToEmployeeDashboardCommand { get; }
-        private UserModel _user { get; set; }
+        private UserModel _User { get; set; }
         public UserModel User
         {
-            get => _user;
+            get => _User;
             set
             {
-                if (_user != value)
+                if (_User != value)
                 {
-                    _user = value;
+                    _User = value;
                     OnPropertyChanged(nameof(User));
                 }
             }
@@ -53,7 +53,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 MessageBox.Show("Invalid credentials");
             }
         }
-
         private void NavigateToEmployeeDashboard()
         {
             var employeeDashboardView = new EmployeeDashBoardLoginView();

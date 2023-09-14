@@ -13,15 +13,15 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
 {
     public class EditTaskViewModel : ViewModelBase
     {
-        private TaskModel _taskToEdit;
+        private TaskModel _TaskToEdit;
         public TaskModel TaskToEdit
         {
-            get => _taskToEdit;
+            get => _TaskToEdit;
             set
             {
-                if (_taskToEdit != value)
+                if (_TaskToEdit != value)
                 {
-                    _taskToEdit = value;
+                    _TaskToEdit = value;
                     OnPropertyChanged(nameof(TaskToEdit));
                 }
             }
@@ -29,16 +29,15 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         public ObservableCollection<TaskModel> _Tasks;
         public AppDbContext appDbContext;
 
-
-        private Model.TaskStatus _selectedStatus;
+        private Model.TaskStatus _SelectedStatus;
         public Model.TaskStatus SelectedStatus
         {
-            get => _selectedStatus;
+            get => _SelectedStatus;
             set
             {
-                if (_selectedStatus != value)
+                if (_SelectedStatus != value)
                 {
-                    _selectedStatus = value;
+                    _SelectedStatus = value;
                     OnPropertyChanged(nameof(SelectedStatus));
                 }
             }

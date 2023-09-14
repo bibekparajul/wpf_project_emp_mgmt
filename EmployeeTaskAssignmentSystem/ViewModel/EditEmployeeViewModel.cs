@@ -11,14 +11,14 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
 {
     public class EditEmployeeViewModel : ViewModelBase
     {
-        private EmployeeModel _employee;
+        private EmployeeModel _Employee;
         private AppDbContext _appDbContext;
         public EmployeeModel Employee
         {
-            get => _employee;
+            get => _Employee;
             set
             {
-                _employee = value;
+                _Employee = value;
                 OnPropertyChanged(nameof(Employee));
             }
         }

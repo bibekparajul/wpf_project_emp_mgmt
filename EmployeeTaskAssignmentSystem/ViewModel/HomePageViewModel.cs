@@ -30,84 +30,84 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             };
         }
 
-        private int _totalEmployees;
+        private int _TotalEmployees;
         public int TotalEmployees
         {
-            get => _totalEmployees;
+            get => _TotalEmployees;
             set
             {
-                if (_totalEmployees != value)
+                if (_TotalEmployees != value)
                 {
-                    _totalEmployees = value;
+                    _TotalEmployees = value;
                     OnPropertyChanged(nameof(TotalEmployees));
                 }
             }
         }
 
-        private int _totalTasks;
+        private int _TotalTasks;
         public int TotalTasks
         {
-            get => _totalTasks;
+            get => _TotalTasks;
             set
             {
-                if (_totalTasks != value)
+                if (_TotalTasks != value)
                 {
-                    _totalTasks = value;
+                    _TotalTasks = value;
                     OnPropertyChanged(nameof(TotalTasks));
                 }
             }
         }
-        private int _pendingTasks;
+        private int _PendingTasks;
         public int PendingTasks
         {
-            get => _pendingTasks;
+            get => _PendingTasks;
             set
             {
-                if (_pendingTasks != value)
+                if (_PendingTasks != value)
                 {
-                    _pendingTasks = value;
+                    _PendingTasks = value;
                     OnPropertyChanged(nameof(PendingTasks));
                 }
             }
         }
 
-        private int _inProgressTasks;
+        private int _InProgressTasks;
         public int InProgressTasks
         {
-            get => _inProgressTasks;
+            get => _InProgressTasks;
             set
             {
-                if (_inProgressTasks != value)
+                if (_InProgressTasks != value)
                 {
-                    _inProgressTasks = value;
+                    _InProgressTasks = value;
                     OnPropertyChanged(nameof(InProgressTasks));
                 }
             }
         }
 
-        private int _doneTasks;
+        private int _DoneTasks;
         public int DoneTasks
         {
-            get => _doneTasks;
+            get => _DoneTasks;
             set
             {
-                if (_doneTasks != value)
+                if (_DoneTasks != value)
                 {
-                    _doneTasks = value;
+                    _DoneTasks = value;
                     OnPropertyChanged(nameof(DoneTasks));
                 }
             }
         }
 
-        private int _notStartedTasks;
+        private int _NotStartedTasks;
         public int NotStartedTasks
         {
-            get => _notStartedTasks;
+            get => _NotStartedTasks;
             set
             {
-                if (_notStartedTasks != value)
+                if (_NotStartedTasks != value)
                 {
-                    _notStartedTasks = value;
+                    _NotStartedTasks = value;
                     OnPropertyChanged(nameof(NotStartedTasks));
                 }
             }

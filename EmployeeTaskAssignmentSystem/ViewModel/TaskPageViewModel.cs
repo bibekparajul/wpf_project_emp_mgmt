@@ -42,29 +42,29 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         public ICommand UpdateButton { get; }
         public ICommand DeleteButton { get; }
 
-        private ICommand _openTaskModalCommand;
+        private ICommand _OpenTaskModalCommand;
         public ICommand OpenTaskModalCommand
         {
             get
             {
-                if (_openTaskModalCommand == null)
+                if (_OpenTaskModalCommand == null)
                 {
-                    _openTaskModalCommand = new RelayCommand(OpenTaskModal);
+                    _OpenTaskModalCommand = new RelayCommand(OpenTaskModal);
                 }
-                return _openTaskModalCommand;
+                return _OpenTaskModalCommand;
             }
         }
 
-        private ICommand _editTaskCommand;
+        private ICommand _EditTaskCommand;
         public ICommand EditTaskCommand
         {
             get
             {
-                if (_editTaskCommand == null)
+                if (_EditTaskCommand == null)
                 {
-                    _editTaskCommand = new RelayCommand(OpenEditTaskModal);
+                    _EditTaskCommand = new RelayCommand(OpenEditTaskModal);
                 }
-                return _editTaskCommand;
+                return _EditTaskCommand;
             }
         }
         private EditAdminTaskViewModel _editTaskViewModel;
@@ -75,65 +75,65 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             modalView.DataContext = this;
             modalView.ShowDialog();
         }
-        private TaskModel _task { get; set; }
+        private TaskModel _Task { get; set; }
         public TaskModel Task
         {
-            get => _task;
+            get => _Task;
             set
             {
-                if (_task != value)
+                if (_Task != value)
                 {
-                    _task = value;
+                    _Task = value;
                     OnPropertyChanged(nameof(Task));
                 }
             }
         }
 
-        private TaskModel _selectedTask;
+        private TaskModel _SelectedTask;
         public TaskModel SelectedTask
         {
-            get => _selectedTask;
+            get => _SelectedTask;
             set
             {
-                if (_selectedTask != value)
+                if (_SelectedTask != value)
                 {
-                    _selectedTask = value;
+                    _SelectedTask = value;
                     OnPropertyChanged(nameof(SelectedTask));
-                    if (_selectedTask != null)
+                    if (_SelectedTask != null)
                     {
-                        Task.Title = _selectedTask.Title;
-                        Task.Description = _selectedTask.Description;
-                        Task.Status = _selectedTask.Status;
-                        Task.AssignedTo = _selectedTask.AssignedTo;
+                        Task.Title = _SelectedTask.Title;
+                        Task.Description = _SelectedTask.Description;
+                        Task.Status = _SelectedTask.Status;
+                        Task.AssignedTo = _SelectedTask.AssignedTo;
 
                     }
                 }
             }
         }
 
-        private TaskStatus _selectedStatus;
+        private TaskStatus _SelectedStatus;
         public TaskStatus SelectedStatus
         {
-            get => _selectedStatus;
+            get => _SelectedStatus;
             set
             {
-                if (_selectedStatus != value)
+                if (_SelectedStatus != value)
                 {
-                    _selectedStatus = value;
+                    _SelectedStatus = value;
                     OnPropertyChanged(nameof(SelectedStatus));
                 }
             }
         }
 
-        private string _assignedToSearchText;
+        private string _AssignedToSearchText;
         public string AssignedToSearchText
         {
-            get => _assignedToSearchText;
+            get => _AssignedToSearchText;
             set
             {
-                if (_assignedToSearchText != value)
+                if (_AssignedToSearchText != value)
                 {
-                    _assignedToSearchText = value;
+                    _AssignedToSearchText = value;
                     OnPropertyChanged(nameof(AssignedToSearchText));
                     UpdateFilteredTasks();
                 }

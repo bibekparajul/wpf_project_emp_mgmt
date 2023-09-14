@@ -13,15 +13,15 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
 {
     public class EditAdminTaskViewModel : ViewModelBase
     {
-        private TaskModel _task;
+        private TaskModel _Task;
         private AppDbContext _appDbContext;
-        private TaskStatus _taskStatus;
+        private TaskStatus _TaskStatus;
         public TaskStatus TaskStatus
         {
-            get => _taskStatus;
+            get => _TaskStatus;
             set
             {
-                _taskStatus = value;
+                _TaskStatus = value;
                 OnPropertyChanged(nameof(TaskStatus));
             }
         }
@@ -36,25 +36,24 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         public string SelectedEmployee { get; set; }
         public TaskModel Task
         {
-            get => _task;
+            get => _Task;
             set
             {
-                _task = value;
+                _Task = value;
                 OnPropertyChanged(nameof(Task));
             }
         }
 
-        private string _assignedTo;
+        private string _AssignedTo;
         public string AssignedTo
         {
-            get => _assignedTo;
+            get => _AssignedTo;
             set
             {
-                _assignedTo = value;
+                _AssignedTo = value;
                 OnPropertyChanged(nameof(AssignedTo));
             }
         }
-
         public ICommand UpdateButton { get; }
         public EditAdminTaskViewModel()
         {

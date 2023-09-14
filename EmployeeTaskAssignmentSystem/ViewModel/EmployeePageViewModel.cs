@@ -13,44 +13,44 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
     public class EmployeePageViewModel : ViewModelBase
     {
         public AppDbContext appDbContext;
-        public ObservableCollection<EmployeeModel> _employees;
+        public ObservableCollection<EmployeeModel> _Employees;
         public ObservableCollection<EmployeeModel> Employees
         {
-            get => _employees;
+            get => _Employees;
             set
             {
-                if (_employees != value)
+                if (_Employees != value)
                 {
-                    _employees = value;
+                    _Employees = value;
                     OnPropertyChanged(nameof(Employees));
                 }
             }
         }
-        private ICommand _openEmployeeModalCommand;
+        private ICommand _OpenEmployeeModalCommand;
         public ICommand OpenEmployeeModelCommand
         {
             get
             {
-                if (_openEmployeeModalCommand == null)
+                if (_OpenEmployeeModalCommand == null)
                 {
-                    _openEmployeeModalCommand = new RelayCommand(OpenEmployeeModal);
+                    _OpenEmployeeModalCommand = new RelayCommand(OpenEmployeeModal);
                 }
-                return _openEmployeeModalCommand;
+                return _OpenEmployeeModalCommand;
             }
         }
-        private ICommand _editEmployeeCommand;
+        private ICommand _EditEmployeeCommand;
         public ICommand EditEmployeeCommand
         {
             get
             {
-                if (_editEmployeeCommand == null)
+                if (_EditEmployeeCommand == null)
                 {
-                    _editEmployeeCommand = new RelayCommand(OpenEditEmployeeModal);
+                    _EditEmployeeCommand = new RelayCommand(OpenEditEmployeeModal);
                 }
-                return _editEmployeeCommand;
+                return _EditEmployeeCommand;
             }
         }
-        private EditEmployeeViewModel _editEmployeeViewModel;
+        private EditEmployeeViewModel _EditEmployeeViewModel;
         private void OpenEmployeeModal()
         {
             Employee = new EmployeeModel();
@@ -74,43 +74,43 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 }
             }
         }
-        private ObservableCollection<TaskModel> _filteredTasks;
+        private ObservableCollection<TaskModel> _FilteredTasks;
         public ObservableCollection<TaskModel> FilteredTasks
         {
-            get => _filteredTasks;
+            get => _FilteredTasks;
             set
             {
-                if (_filteredTasks != value)
+                if (_FilteredTasks != value)
                 {
-                    _filteredTasks = value;
+                    _FilteredTasks = value;
                     OnPropertyChanged(nameof(FilteredTasks));
                 }
             }
         }
-        private string _searchText;
+        private string _SearchText;
         public string SearchText
         {
-            get => _searchText;
+            get => _SearchText;
             set
             {
-                if (_searchText != value)
+                if (_SearchText != value)
                 {
-                    _searchText = value;
+                    _SearchText = value;
                     OnPropertyChanged(nameof(SearchText));
                     FilterEmployees();
                 }
             }
         }
 
-        private ObservableCollection<EmployeeModel> _filteredEmployees;
+        private ObservableCollection<EmployeeModel> _FilteredEmployees;
         public ObservableCollection<EmployeeModel> FilteredEmployees
         {
-            get => _filteredEmployees;
+            get => _FilteredEmployees;
             set
             {
-                if (_filteredEmployees != value)
+                if (_FilteredEmployees != value)
                 {
-                    _filteredEmployees = value;
+                    _FilteredEmployees = value;
                     OnPropertyChanged(nameof(FilteredEmployees));
                 }
             }
@@ -134,37 +134,37 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
                 );
             }
         }
-        private EmployeeModel _employee { get; set; }
+        private EmployeeModel _Employee { get; set; }
         public EmployeeModel Employee
         {
-            get => _employee;
+            get => _Employee;
             set
             {
-                if (_employee != value)
+                if (_Employee != value)
                 {
-                    _employee = value;
+                    _Employee = value;
                     OnPropertyChanged(nameof(Employee));
                 }
             }
         }
 
-        private EmployeeModel _selectedEmployee;
+        private EmployeeModel _SelectedEmployee;
         public EmployeeModel SelectedEmployee
         {
-            get => _selectedEmployee;
+            get => _SelectedEmployee;
             set
             {
-                if (_selectedEmployee != value)
+                if (_SelectedEmployee != value)
                 {
-                    _selectedEmployee = value;
+                    _SelectedEmployee = value;
                     OnPropertyChanged(nameof(SelectedEmployee));
-                    if (_selectedEmployee != null)
+                    if (_SelectedEmployee != null)
                     {
-                        Employee.Name = _selectedEmployee.Name;
-                        Employee.Email = _selectedEmployee.Email;
-                        Employee.Address = _selectedEmployee.Address;
-                        Employee.Contact = _selectedEmployee.Contact;
-                        Employee.Id = _selectedEmployee.Id;
+                        Employee.Name = _SelectedEmployee.Name;
+                        Employee.Email = _SelectedEmployee.Email;
+                        Employee.Address = _SelectedEmployee.Address;
+                        Employee.Contact = _SelectedEmployee.Contact;
+                        Employee.Id = _SelectedEmployee.Id;
                     }
                 }
             }
@@ -180,7 +180,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             //UpdateButton = new RelayCommand(UpdateEmployee);
             DeleteButton = new RelayCommand(DeleteEmployee);
             FilteredEmployees = new ObservableCollection<EmployeeModel>(Employees);
-            _editEmployeeViewModel = new EditEmployeeViewModel();
+            _EditEmployeeViewModel = new EditEmployeeViewModel();
 
         }
 
@@ -234,7 +234,7 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             if (string.IsNullOrWhiteSpace(Employee.Name) || string.IsNullOrWhiteSpace(Employee.Address)
                 || string.IsNullOrWhiteSpace(Employee.Email))
             {
-                MessageBox.Show("Please all field properly");
+                MessageBox.Show("Please fill all field properly!");
                 return;
             }
             if (string.IsNullOrWhiteSpace(Employee.Email))
@@ -413,9 +413,9 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
         {
             if (SelectedEmployee != null)
             {
-                _editEmployeeViewModel.Employee = SelectedEmployee;
+                _EditEmployeeViewModel.Employee = SelectedEmployee;
                 EditModalEmployee editEmployeeView = new EditModalEmployee();
-                editEmployeeView.DataContext = _editEmployeeViewModel;
+                editEmployeeView.DataContext = _EditEmployeeViewModel;
                 editEmployeeView.ShowDialog();
                 if (editEmployeeView.DialogResult == true)
                 {
