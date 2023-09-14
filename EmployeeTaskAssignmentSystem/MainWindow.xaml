@@ -7,11 +7,12 @@
     xmlns:local="clr-namespace:EmployeeTaskAssignmentSystem"
     xmlns:local1="clr-namespace:EmployeeTaskAssignmentSystem.ViewModel"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Employee Task Assignment System"
     Width="1382"
     Height="700"
     MinWidth="1382"
     MinHeight="700"
-    Icon="/Images/Bajra.jpeg"
+    Icon="/Images/BJT.png"
     WindowState="Maximized"
     mc:Ignorable="d">
     <Window.DataContext>
@@ -37,7 +38,7 @@
                     Fill="LightBlue"
                     Stroke="Black"
                     StrokeThickness="2" />-->
-                <Image Margin="0,20,0,20" Source="E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\Images\Bajra.jpeg" />
+                <Image Margin="0,20,0,20" Source="/Images/BJT.png" />
 
                 <WrapPanel
                     Grid.Row="0"
@@ -51,8 +52,6 @@
                         FontFamily="Roboto"
                         FontSize="20"
                         FontWeight="SemiBold" />
-
-
                 </WrapPanel>
                 <!--  Buttons  -->
                 <Button
@@ -60,91 +59,28 @@
                     BorderThickness="0"
                     Command="{Binding HomeButtonCommand}"
                     Content="Home"
-                    Cursor="Hand"
                     FontFamily="Roboto"
                     FontSize="20"
-                    Foreground="White">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#BE263B" />
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#28AEED" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border
-                                Height="40"
-                                Background="{TemplateBinding Background}"
-                                CornerRadius="10">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
+                    Foreground="White"
+                    Style="{StaticResource CustomButtonStyle}" />
                 <Button
                     Margin="10,30,10,0"
                     BorderThickness="0"
                     Command="{Binding EmployeeButtonCommand}"
                     Content="Employee"
-                    Cursor="Hand"
                     FontFamily="Roboto"
                     FontSize="20"
-                    Foreground="White">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#BE263B" />
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#28AEED" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border
-                                Height="40"
-                                Background="{TemplateBinding Background}"
-                                CornerRadius="10">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
+                    Foreground="White"
+                    Style="{StaticResource CustomButtonStyle}" />
                 <Button
                     Margin="10,30,10,0"
                     BorderThickness="0"
                     Command="{Binding TaskButtonCommand}"
                     Content="Task"
-                    Cursor="Hand"
                     FontFamily="Roboto"
                     FontSize="20"
-                    Foreground="White">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#BE263B" />
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#28AEED" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border
-                                Height="40"
-                                Background="{TemplateBinding Background}"
-                                CornerRadius="10">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
+                    Foreground="White"
+                    Style="{StaticResource CustomButtonStyle}" />
                 <Button
                     Width="35"
                     Margin="0,40,0,0"

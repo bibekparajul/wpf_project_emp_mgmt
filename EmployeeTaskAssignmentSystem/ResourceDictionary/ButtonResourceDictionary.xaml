@@ -3,7 +3,6 @@
         <Setter Property="Margin" Value="10,30,10,0" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Content" Value="Login" />
-        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="FontFamily" Value="Roboto" />
         <Setter Property="FontSize" Value="20" />
         <Setter Property="Foreground" Value="White" />

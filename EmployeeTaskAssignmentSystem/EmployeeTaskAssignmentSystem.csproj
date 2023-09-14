@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="Images\Bajra.jpeg" />
+    <None Remove="Images\BJT.png" />
     <None Remove="Images\ll.png" />
   </ItemGroup>
 
@@ -22,6 +23,7 @@
 
   <ItemGroup>
     <Resource Include="Images\Bajra.jpeg" />
+    <Resource Include="Images\BJT.png" />
     <Resource Include="Images\ll.png" />
   </ItemGroup>
 

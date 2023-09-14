@@ -75,7 +75,6 @@ namespace EmployeeTaskAssignmentSystem.ViewModel
             modalView.DataContext = this;
             modalView.ShowDialog();
         }
-
         private TaskModel _task { get; set; }
         public TaskModel Task
         {

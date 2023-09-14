@@ -7,11 +7,12 @@
     xmlns:local="clr-namespace:EmployeeTaskAssignmentSystem.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:EmployeeTaskAssignmentSystem.ViewModel"
+    Title="Employee Task Assignment System"
     Width="1375"
     Height="700"
     MinWidth="1375"
     MinHeight="700"
-    Icon="/Images/Bajra.jpeg"
+    Icon="/Images/BJT.png"
     WindowState="Maximized"
     mc:Ignorable="d">
     <Window.DataContext>
@@ -37,7 +38,7 @@
                     Fill="LightBlue"
                     Stroke="Black"
                     StrokeThickness="2" />-->
-                <Image Margin="0,20,0,20" Source="E:\bajraAssignment\EmployeeTaskAssignmentSystem\EmployeeTaskAssignmentSystem\Images\Bajra.jpeg" />
+                <Image Margin="0,20,0,20" Source="/Images/BJT.png" />
                 <WrapPanel
                     Grid.Row="0"
                     Margin="10"

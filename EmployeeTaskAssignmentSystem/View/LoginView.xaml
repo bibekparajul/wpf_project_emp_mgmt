@@ -12,7 +12,7 @@
     Height="450"
     MinWidth="800"
     MinHeight="450"
-    Icon="/Images/Bajra.jpeg"
+    Icon="/Images/BJT.png"
     ResizeMode="CanMinimize"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -108,18 +108,18 @@
         </Border>
         <Image
             Grid.Column="1"
+            Width="100"
+            Height="100"
             Margin="1"
             HorizontalAlignment="Right"
-            Height="100"
-            Width="100"
             VerticalAlignment="top"
-            Source="\Images\Bajra.jpeg" />
+            Source="\Images\BJT.png" />
         <Image
             x:Name="imageControl"
             Grid.Column="1"
             Margin="50"
             VerticalAlignment="Center"
             Source="\Images\ll.png" />
-       
+
     </Grid>
 </Window>

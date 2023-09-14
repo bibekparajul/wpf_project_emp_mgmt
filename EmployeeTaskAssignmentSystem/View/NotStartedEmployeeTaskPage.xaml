@@ -45,7 +45,7 @@
                 <DataTemplate>
                     <Border
                         Width="300"
-                        Margin="5"
+                        Margin="8"
                         Padding="10"
                         Background="White"
                         BorderBrush="Gray"
@@ -53,37 +53,47 @@
                         CornerRadius="5">
                         <Grid>
                             <StackPanel>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock
+                                        HorizontalAlignment="left"
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Foreground="#BE263B"
+                                        Text="{Binding Title}"
+                                        TextWrapping="Wrap" />
+
+                                    <TextBlock
+                                        Margin="0,5,0,10"
+                                        HorizontalAlignment="left"
+                                        FontWeight="Bold"
+                                        Text="{Binding CreatedOn, StringFormat='yyyy-MM-dd'}" />
+                                    <Border
+                                        Height="2"
+                                        BorderBrush="Gray"
+                                        BorderThickness="1" />
+                                </StackPanel>
                                 <TextBlock
-                                    FontSize="16"
-                                    FontWeight="Bold"
-                                    Text="{Binding Title}" />
-                                <TextBlock
-                                    Margin="5,5,0,10"
+                                    Margin="5,15,0,10"
                                     FontWeight="SemiBold"
                                     Text="{Binding Description}"
                                     TextWrapping="Wrap" />
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="Status:" FontWeight="SemiBold" />
+                                    <Label Content="Status:" FontWeight="Bold" />
                                     <TextBlock
                                         Margin="5,5,0,10"
                                         FontWeight="SemiBold"
+                                        Foreground="#BE263B"
                                         Text="{Binding Status}" />
                                 </StackPanel>
-                                <TextBlock Margin="5,5,0,10" Text="{Binding AssignedTo}" />
+
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="Created On:" FontWeight="SemiBold" />
-                                    <TextBlock
-                                        Margin="5,5,0,10"
-                                        FontWeight="SemiBold"
-                                        Text="{Binding CreatedOn}" />
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="Updated On:" FontWeight="SemiBold" />
+                                    <Label Content="Updated On:" FontWeight="Bold" />
                                     <TextBlock
                                         Margin="5,5,0,10"
                                         FontWeight="SemiBold"
                                         Text="{Binding UpdatedOn}" />
                                 </StackPanel>
+
                             </StackPanel>
                         </Grid>
                     </Border>
